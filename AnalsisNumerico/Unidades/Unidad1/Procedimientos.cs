@@ -11,7 +11,31 @@ namespace AnalsisNumerico.Unidades.Unidad1
 {
     public class Procedimientos
     {
-        public static BiSalida MetodoBiseccion(BiEntrada datosEntrada)
+        private static double CalcularMetodo(string metodo, double Xi, double Xd)
+        {
+            Calculo AnalizadorFunciones = new();
+            switch (metodo)
+            {
+                case "Biseccion":
+                    return (Xi + Xd) / 2;
+                case "Regla falsa":
+                    return (AnalizadorFunciones.EvaluaFx(Xd) * Xi - AnalizadorFunciones.EvaluaFx(Xi) * Xd) /
+                            (AnalizadorFunciones.EvaluaFx(Xd) - AnalizadorFunciones.EvaluaFx(Xi));
+                case "Newton-Raphson":
+                    double Xini = Xi;
+                    double Deriv = Xd;
+                    return (Xini - (AnalizadorFunciones.EvaluaFx(Xini) / Deriv));
+                case "Secante":
+                    double uno = AnalizadorFunciones.EvaluaFx(Xi);
+                    double dos = AnalizadorFunciones.EvaluaFx(Xd);
+                    return ((AnalizadorFunciones.EvaluaFx(Xd) * Xi) - (AnalizadorFunciones.EvaluaFx(Xi) * Xd)) /
+                        (AnalizadorFunciones.EvaluaFx(Xd) - AnalizadorFunciones.EvaluaFx(Xi));
+                default: throw new NotImplementedException();
+            }
+        }
+
+        //Con este metodo podemos calcular el metodo de la Biseccion y la Regla Falsa
+        public static BiSalida MetodoCerrados(BiEntrada datosEntrada)
         {
             //Inicializamos Calculus
             Calculo AnalizadorFunciones = new();
@@ -57,7 +81,7 @@ namespace AnalsisNumerico.Unidades.Unidad1
                     else if (AnalizadorFunciones.EvaluaFx(datosEntrada.Xi) * AnalizadorFunciones.EvaluaFx(datosEntrada.Xd) < 0)
                     {
                         cont++;
-                        xr = (datosEntrada.Xi + datosEntrada.Xd) / 2;
+                        xr = CalcularMetodo(datosEntrada.metodo, datosEntrada.Xi, datosEntrada.Xd);
                         Err = Math.Abs((xr - xrAnterior) / xr);
 
                         if (Math.Abs(AnalizadorFunciones.EvaluaFx(xr)) < datosEntrada.Tole || Err < datosEntrada.Tole)
