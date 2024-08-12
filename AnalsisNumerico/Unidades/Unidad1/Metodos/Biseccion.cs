@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AnalsisNumerico.Unidades.Unidad1
+namespace AnalsisNumerico.Unidades.Unidad1.Metodos
 {
-    public partial class Unidad1 : Form
+    public partial class Biseccion : Form
     {
-        public Unidad1()
+        public Biseccion()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Metodos.Biseccion biseccion = new();
-            biseccion.ShowDialog();
         }
     }
 }

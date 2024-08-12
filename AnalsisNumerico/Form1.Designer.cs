@@ -42,6 +42,7 @@
             boton_menu_U1.TabIndex = 0;
             boton_menu_U1.Text = "Unidad 1";
             boton_menu_U1.UseVisualStyleBackColor = true;
+            boton_menu_U1.Click += boton_menu_U1_Click;
             // 
             // button_menu_U2
             // 
