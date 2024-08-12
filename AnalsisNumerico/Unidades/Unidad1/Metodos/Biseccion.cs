@@ -25,7 +25,6 @@ namespace AnalsisNumerico.Unidades.Unidad1.Metodos
             datosEntrada.Xi = double.Parse(textBox_li.Text);
             datosEntrada.Xd = double.Parse(textBox_ld.Text);
             datosEntrada.Iter = int.Parse(textBox_iteraciones.Text);
-            datosEntrada.Tole = double.Parse(textBox_tolerancia.Text);
 
             BiSalida datosSalida = Procedimientos.MetodoBiseccion(datosEntrada);
             label_salida_err.Text = datosSalida.ErrRelativo.ToString();

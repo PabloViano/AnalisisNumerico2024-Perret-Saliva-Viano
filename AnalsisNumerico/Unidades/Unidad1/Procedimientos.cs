@@ -38,9 +38,11 @@ namespace AnalsisNumerico.Unidades.Unidad1
                         if (AnalizadorFunciones.EvaluaFx(datosEntrada.Xi) == 0)
                         {
                             salida.Raiz = datosEntrada.Xi;
+                            MessageBox.Show("El valor ingresado en el Limite izquierdo es la raiz");
                             return salida;
                         }
                         salida.Raiz = datosEntrada.Xd;
+                        MessageBox.Show("El valor ingresado en el Limite derecho es la raiz");
                         return salida;
                     }
                     //Verificamos que el intervalo contenga la raiz
@@ -48,7 +50,7 @@ namespace AnalsisNumerico.Unidades.Unidad1
                     {
                         double funcXi = AnalizadorFunciones.EvaluaFx(datosEntrada.Xi);
                         double funXd = AnalizadorFunciones.EvaluaFx(datosEntrada.Xd);
-                        MessageBox.Show($"funcion en xi = {funcXi} y funcion en xd = {funXd}");
+                        //MessageBox.Show($"funcion en xi = {funcXi} y funcion en xd = {funXd}");
                         MessageBox.Show("La raiz no se encuentra en el intervalo ingresado");
                         break;
                     }
@@ -72,7 +74,7 @@ namespace AnalsisNumerico.Unidades.Unidad1
                 if (!salida.HuboError)
                 {
                     salida.IterTotales = cont;
-                    salida.ErrRelativo = Err;
+                    salida.ErrRelativo = Math.Round(Err, 6);
 
                     if (cont > datosEntrada.Iter)
                     {
@@ -83,7 +85,7 @@ namespace AnalsisNumerico.Unidades.Unidad1
                     {
                         salida.Converge = true;
                     }
-                    salida.Raiz = xr;
+                    salida.Raiz = Math.Round(xr, 6);
                     return salida;
                 }
             }
