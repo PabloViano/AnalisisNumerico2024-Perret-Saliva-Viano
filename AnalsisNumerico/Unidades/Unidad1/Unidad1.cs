@@ -22,5 +22,11 @@ namespace AnalsisNumerico.Unidades.Unidad1
             Metodos.Biseccion biseccion = new();
             biseccion.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Metodos.ReglaFalsa RF = new();
+            RF.ShowDialog();
+        }
     }
 }

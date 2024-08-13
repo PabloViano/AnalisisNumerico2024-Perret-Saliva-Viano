@@ -19,8 +19,11 @@ namespace AnalsisNumerico.Unidades.Unidad1
                 case "Biseccion":
                     return (Xi + Xd) / 2;
                 case "Regla falsa":
-                    return (AnalizadorFunciones.EvaluaFx(Xd) * Xi - AnalizadorFunciones.EvaluaFx(Xi) * Xd) /
-                            (AnalizadorFunciones.EvaluaFx(Xd) - AnalizadorFunciones.EvaluaFx(Xi));
+                    {
+                        double fxi = AnalizadorFunciones.EvaluaFx(Xi);
+                        double fxd = AnalizadorFunciones.EvaluaFx(Xd);
+                        return ((fxi * Xd) - (fxd * Xi)) / (fxi - fxd);
+                    }
                 case "Newton-Raphson":
                     double Xini = Xi;
                     double Deriv = Xd;
