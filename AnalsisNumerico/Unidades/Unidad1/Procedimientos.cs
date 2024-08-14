@@ -124,5 +124,89 @@ namespace AnalsisNumerico.Unidades.Unidad1
 
             return salida;
         }
+
+        //Este es el metodo para poder calcular los metodos de Newton-Rapshon y Secante
+        public static SalidaMA MetodosAbiertos( EntradaMA datosEntrada)
+        {
+            Calculo AnalizadorFunciones = new();
+
+            SalidaMA resultado = new();
+
+            if (AnalizadorFunciones.Sintaxis(datosEntrada.Funcion, 'x'))
+            {
+                //Inicializamos todas las variables necesarias
+                int cont = 0;
+                double xi = datosEntrada.Xini;
+                double xr = 0;
+                double xAnt = 0;
+                double ErrorRelativo = 0;
+                double derivada = 0;
+
+                while (cont < datosEntrada.Iter)
+                {
+                    //Verificamos que el XIni no sea raiz
+                    if (AnalizadorFunciones.EvaluaFx(datosEntrada.Xini) <= datosEntrada.Tole)
+                    {
+                        resultado.IterTotales = cont;
+                        resultado.ErrRelativo = ErrorRelativo;
+                        resultado.Converge = true;
+                        resultado.HuboError = false;
+                        resultado.Raiz = datosEntrada.Xini;
+
+                        MessageBox.Show("El punto de inicio ingresado es la Raiz (pura suerte)");
+
+                        return resultado;
+                    }
+
+                    derivada = AnalizadorFunciones.Dx(xi);
+
+                    if (derivada == 0)
+                    {
+                        resultado.IterTotales = cont;
+                        resultado.ErrRelativo = ErrorRelativo;
+                        resultado.Converge = false;
+                        resultado.HuboError = false;
+                        resultado.Raiz = null;
+
+                        MessageBox.Show("No hay raiz");
+
+                        return resultado;
+                    }
+
+                    xr = CalcularMetodo("Newton-Raphson",xi,derivada);
+                    ErrorRelativo = Math.Abs(xr - xAnt);
+
+                    if (AnalizadorFunciones.EvaluaFx(xr) <= datosEntrada.Tole || datosEntrada.Tole > ErrorRelativo) 
+                    {
+                        resultado.IterTotales = cont;
+                        resultado.ErrRelativo = ErrorRelativo;
+                        resultado.Converge = true;
+                        resultado.HuboError = false;
+                        resultado.Raiz = xr;
+
+                        return resultado;
+                    }
+                    else
+                    {
+                        xAnt = xr;
+                        xi = xr;
+                    }
+
+                }
+            }
+            else
+            {
+                resultado.IterTotales = 0;
+                resultado.ErrRelativo = 0;
+                resultado.Converge = false;
+                resultado.HuboError = true;
+
+                MessageBox.Show("Ingrese una función válida");
+
+                return resultado;
+            }
+
+            return resultado;
+        }
     }
 }
