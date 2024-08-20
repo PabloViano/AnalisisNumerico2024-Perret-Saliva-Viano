@@ -159,7 +159,7 @@ namespace AnalsisNumerico.Unidades.Unidad1
                     }
 
                     derivada = AnalizadorFunciones.Dx(xi);
-
+                    //Si la derivada es 0, significa que no hay raiz
                     if (derivada == 0)
                     {
                         resultado.IterTotales = cont;
@@ -194,12 +194,14 @@ namespace AnalsisNumerico.Unidades.Unidad1
 
                 }
             }
+            //La sintaxis es incorrecta
             else
             {
                 resultado.IterTotales = 0;
                 resultado.ErrRelativo = 0;
                 resultado.Converge = false;
                 resultado.HuboError = true;
+                resultado.Raiz = null;
 
                 MessageBox.Show("Ingrese una función válida");
 

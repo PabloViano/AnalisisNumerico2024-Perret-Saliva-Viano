@@ -41,6 +41,8 @@
             textBox_funcion = new TextBox();
             label1 = new Label();
             groupBox2 = new GroupBox();
+            label_BI_Salida_Converge = new Label();
+            label7 = new Label();
             label_salida_solucion = new Label();
             label_solucion = new Label();
             label_salida_err = new Label();
@@ -163,6 +165,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(label_BI_Salida_Converge);
+            groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label_salida_solucion);
             groupBox2.Controls.Add(label_solucion);
             groupBox2.Controls.Add(label_salida_err);
@@ -175,6 +179,24 @@
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Salida";
+            // 
+            // label_BI_Salida_Converge
+            // 
+            label_BI_Salida_Converge.AutoSize = true;
+            label_BI_Salida_Converge.Location = new Point(502, 45);
+            label_BI_Salida_Converge.Name = "label_BI_Salida_Converge";
+            label_BI_Salida_Converge.Size = new Size(15, 20);
+            label_BI_Salida_Converge.TabIndex = 18;
+            label_BI_Salida_Converge.Text = "-";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(406, 45);
+            label7.Name = "label7";
+            label7.Size = new Size(90, 20);
+            label7.TabIndex = 17;
+            label7.Text = "Converge = ";
             // 
             // label_salida_solucion
             // 
@@ -234,6 +256,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -267,5 +290,7 @@
         private Label label_solucion;
         private Label label_salida_err;
         private Label label_err;
+        private Label label_BI_Salida_Converge;
+        private Label label7;
     }
 }

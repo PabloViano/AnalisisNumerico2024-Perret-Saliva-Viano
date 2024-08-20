@@ -31,6 +31,7 @@ namespace AnalsisNumerico.Unidades.Unidad1.Metodos
             label_salida_err.Text = datosSalida.ErrRelativo.ToString();
             label_salida_iteraciones.Text = datosSalida.IterTotales.ToString();
             label_salida_solucion.Text = datosSalida.Raiz.ToString();
+            label_BI_Salida_Converge.Text = datosSalida.Converge.ToString();
         }
     }
 }
