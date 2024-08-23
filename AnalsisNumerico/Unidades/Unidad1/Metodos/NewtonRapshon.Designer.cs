@@ -166,6 +166,7 @@
             button_Calcular_NW.TabIndex = 10;
             button_Calcular_NW.Text = "Calcular";
             button_Calcular_NW.UseVisualStyleBackColor = true;
+            button_Calcular_NW.Click += button_Calcular_NW_Click;
             // 
             // textBox_NW_LI
             // 

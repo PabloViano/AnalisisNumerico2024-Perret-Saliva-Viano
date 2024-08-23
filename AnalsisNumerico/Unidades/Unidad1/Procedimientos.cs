@@ -11,9 +11,13 @@ namespace AnalsisNumerico.Unidades.Unidad1
 {
     public class Procedimientos
     {
-        private static double CalcularMetodo(string metodo, double Xi, double Xd)
+
+        private static double CalcularMetodo(string metodo, double Xi, double Xd, string funcion)
         {
             Calculo AnalizadorFunciones = new();
+
+
+            AnalizadorFunciones.Sintaxis(funcion, 'x');
             switch (metodo)
             {
                 case "Biseccion":
@@ -38,12 +42,12 @@ namespace AnalsisNumerico.Unidades.Unidad1
         }
 
         //Con este metodo podemos calcular el metodo de la Biseccion y la Regla Falsa
-        public static BiSalida MetodoCerrados(BiEntrada datosEntrada)
+        public static SalidaMC MetodoCerrados(EntradaMC datosEntrada)
         {
             //Inicializamos Calculus
             Calculo AnalizadorFunciones = new();
 
-            BiSalida salida = new BiSalida();
+            SalidaMC salida = new SalidaMC();
 
             //Primero verificamos que la funcion ingresada este bien escrita
             if (AnalizadorFunciones.Sintaxis(datosEntrada.Funcion, 'x'))
@@ -84,7 +88,7 @@ namespace AnalsisNumerico.Unidades.Unidad1
                     else if (AnalizadorFunciones.EvaluaFx(datosEntrada.Xi) * AnalizadorFunciones.EvaluaFx(datosEntrada.Xd) < 0)
                     {
                         cont++;
-                        xr = CalcularMetodo(datosEntrada.metodo, datosEntrada.Xi, datosEntrada.Xd);
+                        xr = CalcularMetodo(datosEntrada.metodo, datosEntrada.Xi, datosEntrada.Xd, datosEntrada.Funcion);
                         Err = Math.Abs((xr - xrAnterior) / xr);
 
                         if (Math.Abs(AnalizadorFunciones.EvaluaFx(xr)) < datosEntrada.Tole || Err < datosEntrada.Tole)
@@ -125,90 +129,121 @@ namespace AnalsisNumerico.Unidades.Unidad1
             return salida;
         }
 
-        //Este es el metodo para poder calcular los metodos de Newton-Rapshon y Secante
-        public static SalidaMA MetodosAbiertos( EntradaMA datosEntrada)
+        public static SalidaMA MetodoAbierto(EntradaMA datosEntrada)
         {
-            Calculo AnalizadorFunciones = new();
+            Calculo analizadorFunciones = new();
 
-            SalidaMA resultado = new();
+            SalidaMA Resultado = new();
 
-            if (AnalizadorFunciones.Sintaxis(datosEntrada.Funcion, 'x'))
+            string funcion = datosEntrada.Funcion;
+            double tolerancia = datosEntrada.Tole;
+            int iteraciones  = datosEntrada.Iter;
+            double Xi = datosEntrada.Xini;
+            double Xd = datosEntrada.Xd;
+            string metodo = datosEntrada.Metodo;
+
+            if (analizadorFunciones.Sintaxis(funcion, 'x'))
             {
-                //Inicializamos todas las variables necesarias
-                int cont = 0;
-                double xi = datosEntrada.Xini;
-                double xr = 0;
-                double xAnt = 0;
-                double ErrorRelativo = 0;
-                double derivada = 0;
-
-                while (cont < datosEntrada.Iter)
+                double Error = 0;
+                double Xr = 0;
+                if (Math.Abs(analizadorFunciones.EvaluaFx(Xi)) < tolerancia)
                 {
-                    //Verificamos que el XIni no sea raiz
-                    if (AnalizadorFunciones.EvaluaFx(datosEntrada.Xini) <= datosEntrada.Tole)
+                    Resultado.ErrRelativo = Error;
+                    Resultado.Converge = true;
+                    Resultado.Raiz = Math.Round(Xi, 6);
+                    Resultado.IterTotales = 0;
+                    Resultado.HuboError = false;
+
+                    return Resultado;
+                }
+                else if (Math.Abs(analizadorFunciones.EvaluaFx(Xd)) < tolerancia && metodo == "Secante")
+                {
+                    Resultado.ErrRelativo = Error;
+                    Resultado.Converge = true;
+                    Resultado.Raiz = Math.Round(Xd, 6);
+                    Resultado.IterTotales = 0;
+                    Resultado.HuboError = false;
+
+                    return Resultado;
+                }
+                double XrAnterior = 0;
+                for (int i = 1; i <= iteraciones; i++)
+                {
+                    if (metodo == "Secante")
                     {
-                        resultado.IterTotales = cont;
-                        resultado.ErrRelativo = ErrorRelativo;
-                        resultado.Converge = true;
-                        resultado.HuboError = false;
-                        resultado.Raiz = datosEntrada.Xini;
+                        Xr = CalcularMetodo(metodo, Xi, Xd, funcion);
+                        if (double.IsNaN(Xr))
+                        {
+                            Resultado.ErrRelativo = Error;
+                            Resultado.Converge = false;
+                            Resultado.Raiz = 0;
+                            Resultado.IterTotales = 0;
+                            Resultado.HuboError = true;
 
-                        MessageBox.Show("El punto de inicio ingresado es la Raiz (pura suerte)");
-
-                        return resultado;
-                    }
-
-                    derivada = AnalizadorFunciones.Dx(xi);
-                    //Si la derivada es 0, significa que no hay raiz
-                    if (derivada == 0)
-                    {
-                        resultado.IterTotales = cont;
-                        resultado.ErrRelativo = ErrorRelativo;
-                        resultado.Converge = false;
-                        resultado.HuboError = false;
-                        resultado.Raiz = null;
-
-                        MessageBox.Show("No hay raiz");
-
-                        return resultado;
-                    }
-
-                    xr = CalcularMetodo("Newton-Raphson",xi,derivada);
-                    ErrorRelativo = Math.Abs(xr - xAnt);
-
-                    if (AnalizadorFunciones.EvaluaFx(xr) <= datosEntrada.Tole || datosEntrada.Tole > ErrorRelativo) 
-                    {
-                        resultado.IterTotales = cont;
-                        resultado.ErrRelativo = ErrorRelativo;
-                        resultado.Converge = true;
-                        resultado.HuboError = false;
-                        resultado.Raiz = xr;
-
-                        return resultado;
+                            MessageBox.Show("ERROR. El metodo diverge, usando Secante como metodo.");
+                            return Resultado;
+                        }
                     }
                     else
                     {
-                        xAnt = xr;
-                        xi = xr;
-                    }
+                        double Deriv = analizadorFunciones.Dx(Xi);
+                        if (Math.Abs(Deriv) < tolerancia || double.IsNaN(Deriv))
+                        {
+                            Resultado.ErrRelativo = Error;
+                            Resultado.Converge = false;
+                            Resultado.Raiz = 0;
+                            Resultado.IterTotales = 0;
+                            Resultado.HuboError = true;
 
+                            MessageBox.Show("ERROR. El metodo diverge, usando Newton-Rapshon como metodo");
+                            return Resultado;
+                        }
+                        Xr = CalcularMetodo(metodo, Xi, Deriv, funcion);
+                    }
+                    Error = Math.Abs((Xr - XrAnterior) / Xr);
+                    if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) < tolerancia || Error < tolerancia)
+                    {
+                        Resultado.ErrRelativo = Error;
+                        Resultado.Converge = true;
+                        Resultado.Raiz = Math.Round(Xr, 6);
+                        Resultado.IterTotales = i;
+                        Resultado.HuboError = false;
+
+                        return Resultado;
+                    }
+                    else
+                    {
+                        if (metodo == "Newton-Raphson")
+                        {
+                            Xi = Xr;
+                        }
+                        else
+                        {
+                            Xi = Xd;
+                            Xd = Xr;
+                        }
+                        XrAnterior = Xr;
+                    }
+                }
+                if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) >= tolerancia && Error >= tolerancia)
+                {
+                    Resultado.ErrRelativo = Error;
+                    Resultado.Converge = true;
+                    Resultado.Raiz = Math.Round(Xr, 6);
+                    Resultado.IterTotales = iteraciones;
+                    Resultado.HuboError = false;
+
+                    return Resultado;
                 }
             }
-            //La sintaxis es incorrecta
-            else
-            {
-                resultado.IterTotales = 0;
-                resultado.ErrRelativo = 0;
-                resultado.Converge = false;
-                resultado.HuboError = true;
-                resultado.Raiz = null;
-
-                MessageBox.Show("Ingrese una función válida");
-
-                return resultado;
-            }
-
-            return resultado;
+                MessageBox.Show("Error de sintaxis en la funcion. Verifique lo escrito.");
+                Resultado.ErrRelativo = 0;
+                Resultado.Converge = false;
+                Resultado.Raiz = 0;
+                Resultado.IterTotales = 0;
+                Resultado.HuboError = true;
+                return Resultado;
         }
+
     }
 }

@@ -84,6 +84,7 @@
             button3.TabIndex = 4;
             button3.Text = "Newton - Rapshon";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -93,6 +94,7 @@
             button4.TabIndex = 5;
             button4.Text = "Secante";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // Unidad1
             // 

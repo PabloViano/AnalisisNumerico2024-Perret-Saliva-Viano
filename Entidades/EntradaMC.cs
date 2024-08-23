@@ -1,6 +1,6 @@
 ﻿namespace Entidades
 {
-    public class BiEntrada
+    public class EntradaMC
     {
         public string metodo {  get; set; } //nombre del metodo que hay que aplicar
         public string Funcion { get; set; }

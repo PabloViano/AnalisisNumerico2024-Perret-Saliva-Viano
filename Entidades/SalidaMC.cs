@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class BiSalida
+    public class SalidaMC
     {
         public bool Converge { get; set; }
         public int IterTotales { get; set; }

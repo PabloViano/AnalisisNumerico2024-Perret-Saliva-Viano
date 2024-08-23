@@ -28,5 +28,17 @@ namespace AnalsisNumerico.Unidades.Unidad1
             Metodos.ReglaFalsa RF = new();
             RF.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Metodos.NewtonRapshon NW = new();
+            NW.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Metodos.Secante SEC = new();
+            SEC.ShowDialog();
+        }
     }
 }
