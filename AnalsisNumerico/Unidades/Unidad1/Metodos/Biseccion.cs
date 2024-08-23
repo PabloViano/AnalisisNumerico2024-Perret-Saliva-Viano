@@ -30,7 +30,7 @@ namespace AnalsisNumerico.Unidades.Unidad1.Metodos
 
             SalidaMC datosSalida = Procedimientos.MetodoCerrados(datosEntrada);
 
-            string numero = string.Format("{0:F6}", datosSalida.ErrRelativo); ;
+            float numero = (float)datosSalida.ErrRelativo;
 
             label_salida_err.Text = numero.ToString();
             label_salida_iteraciones.Text = datosSalida.IterTotales.ToString();

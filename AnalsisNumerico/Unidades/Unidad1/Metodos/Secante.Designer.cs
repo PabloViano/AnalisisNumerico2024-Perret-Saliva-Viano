@@ -38,7 +38,9 @@
             label7 = new Label();
             label6 = new Label();
             groupBox1 = new GroupBox();
+            textBox_SEC_LD = new TextBox();
             button_Calcular_NW = new Button();
+            label5 = new Label();
             textBox_SEC_LI = new TextBox();
             textBox_SEC_Tolerancia = new TextBox();
             textBox_SEC_Iteraciones = new TextBox();
@@ -47,8 +49,6 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            textBox_SEC_LD = new TextBox();
-            label5 = new Label();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -162,6 +162,13 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
             // 
+            // textBox_SEC_LD
+            // 
+            textBox_SEC_LD.Location = new Point(570, 90);
+            textBox_SEC_LD.Name = "textBox_SEC_LD";
+            textBox_SEC_LD.Size = new Size(110, 27);
+            textBox_SEC_LD.TabIndex = 19;
+            // 
             // button_Calcular_NW
             // 
             button_Calcular_NW.Location = new Point(565, 160);
@@ -170,6 +177,16 @@
             button_Calcular_NW.TabIndex = 10;
             button_Calcular_NW.Text = "Calcular";
             button_Calcular_NW.UseVisualStyleBackColor = true;
+            button_Calcular_NW.Click += button_Calcular_NW_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(440, 90);
+            label5.Name = "label5";
+            label5.Size = new Size(124, 20);
+            label5.TabIndex = 18;
+            label5.Text = "Límite Derecho =";
             // 
             // textBox_SEC_LI
             // 
@@ -234,22 +251,6 @@
             label1.Size = new Size(74, 20);
             label1.TabIndex = 0;
             label1.Text = "Función =";
-            // 
-            // textBox_SEC_LD
-            // 
-            textBox_SEC_LD.Location = new Point(570, 90);
-            textBox_SEC_LD.Name = "textBox_SEC_LD";
-            textBox_SEC_LD.Size = new Size(110, 27);
-            textBox_SEC_LD.TabIndex = 19;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(440, 90);
-            label5.Name = "label5";
-            label5.Size = new Size(124, 20);
-            label5.TabIndex = 18;
-            label5.Text = "Límite Derecho =";
             // 
             // Secante
             // 

@@ -128,7 +128,7 @@ namespace AnalsisNumerico.Unidades.Unidad1
 
             return salida;
         }
-
+        //Con este metodo podemos calcular el metodo de Nweton-Rapshon y de la Secante
         public static SalidaMA MetodoAbierto(EntradaMA datosEntrada)
         {
             Calculo analizadorFunciones = new();
@@ -142,10 +142,12 @@ namespace AnalsisNumerico.Unidades.Unidad1
             double Xd = datosEntrada.Xd;
             string metodo = datosEntrada.Metodo;
 
+            //Verificamos la sintaxis de funcion
             if (analizadorFunciones.Sintaxis(funcion, 'x'))
             {
                 double Error = 0;
                 double Xr = 0;
+                //Vemos si el valor ingresado es la raiz
                 if (Math.Abs(analizadorFunciones.EvaluaFx(Xi)) < tolerancia)
                 {
                     Resultado.ErrRelativo = Error;
@@ -156,6 +158,7 @@ namespace AnalsisNumerico.Unidades.Unidad1
 
                     return Resultado;
                 }
+                //Vemos si el valor ingresado es la raiz
                 else if (Math.Abs(analizadorFunciones.EvaluaFx(Xd)) < tolerancia && metodo == "Secante")
                 {
                     Resultado.ErrRelativo = Error;
@@ -169,6 +172,7 @@ namespace AnalsisNumerico.Unidades.Unidad1
                 double XrAnterior = 0;
                 for (int i = 1; i <= iteraciones; i++)
                 {
+                    //Verificamos si la funcion dirverge en el metodo de la Secante
                     if (metodo == "Secante")
                     {
                         Xr = CalcularMetodo(metodo, Xi, Xd, funcion);
@@ -187,6 +191,8 @@ namespace AnalsisNumerico.Unidades.Unidad1
                     else
                     {
                         double Deriv = analizadorFunciones.Dx(Xi);
+
+                        //Verificamos si la funcion dirverge en el metodo de Newton-Rapshon
                         if (Math.Abs(Deriv) < tolerancia || double.IsNaN(Deriv))
                         {
                             Resultado.ErrRelativo = Error;
@@ -201,6 +207,7 @@ namespace AnalsisNumerico.Unidades.Unidad1
                         Xr = CalcularMetodo(metodo, Xi, Deriv, funcion);
                     }
                     Error = Math.Abs((Xr - XrAnterior) / Xr);
+                    //Verificamos si encontramos la Raiz
                     if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) < tolerancia || Error < tolerancia)
                     {
                         Resultado.ErrRelativo = Error;
@@ -225,6 +232,7 @@ namespace AnalsisNumerico.Unidades.Unidad1
                         XrAnterior = Xr;
                     }
                 }
+                //Verificamos si encontramos la Raiz
                 if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) >= tolerancia && Error >= tolerancia)
                 {
                     Resultado.ErrRelativo = Error;
@@ -236,7 +244,8 @@ namespace AnalsisNumerico.Unidades.Unidad1
                     return Resultado;
                 }
             }
-                MessageBox.Show("Error de sintaxis en la funcion. Verifique lo escrito.");
+            //La sintaxis no es correcta
+                MessageBox.Show("Error de sintaxis en la funcion. Verifique.");
                 Resultado.ErrRelativo = 0;
                 Resultado.Converge = false;
                 Resultado.Raiz = 0;
