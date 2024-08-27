@@ -28,7 +28,7 @@ namespace AnalsisNumerico.Unidades.Unidad1.Metodos
             datosEntrada.Iter = int.Parse(textBox_RF_Iteraciones.Text);
 
             SalidaMC datosSalida = Procedimientos.MetodoCerrados(datosEntrada);
-            label_RF_salida_Err.Text = datosSalida.ErrRelativo.ToString();
+            label_RF_salida_Err.Text = datosSalida.ErrRelativo.ToString("F7");
             label_RF_salida_Iter.Text = datosSalida.IterTotales.ToString();
             label_RF_salida_Solu.Text = datosSalida.Raiz.ToString();
         }

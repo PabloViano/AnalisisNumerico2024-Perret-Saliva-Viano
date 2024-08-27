@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Calculus">
+      <HintPath>..\..\..\..\Downloads\Calculus-C-dll-and-Java-Android--master\Calculus.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

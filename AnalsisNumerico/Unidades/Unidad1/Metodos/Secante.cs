@@ -32,7 +32,7 @@ namespace AnalsisNumerico.Unidades.Unidad1.Metodos
 
             float numero = (float)datosSalida.ErrRelativo;
 
-            label_SEC_salida_Err.Text = numero.ToString();
+            label_SEC_salida_Err.Text = numero.ToString("F7");
             label_SEC_salida_Iter.Text = datosSalida.IterTotales.ToString();
             label_SEC_salida_Solu.Text = datosSalida.Raiz.ToString();
             label_salida_SEC_Converge.Text = datosSalida.Converge.ToString();

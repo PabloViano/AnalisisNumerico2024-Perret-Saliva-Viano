@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <Reference Include="Calculus">
-      <HintPath>..\..\..\..\Descargas\Universidad\AN\Calculus-C-dll-and-Java-Android--master\Calculus-C-dll-and-Java-Android--master\Calculus.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\Calculus-C-dll-and-Java-Android--master\Calculus.dll</HintPath>
     </Reference>
   </ItemGroup>
 
