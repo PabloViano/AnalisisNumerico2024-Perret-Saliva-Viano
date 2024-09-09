@@ -6,16 +6,11 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>AnalsisNumerico</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Entidades\Entidades.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Calculus">
-      <HintPath>..\..\..\..\Downloads\Calculus-C-dll-and-Java-Android--master\Calculus.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\AnalisisNumerico.Data\AnalisisNumerico.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +26,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Unidad3\" />
+    <Folder Include="Unidad4\" />
+    <Folder Include="Unidades\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Calculus">
+      <HintPath>..\Calculus.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

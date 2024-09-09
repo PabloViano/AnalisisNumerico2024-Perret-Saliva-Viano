@@ -11,7 +11,6 @@ namespace AnalsisNumerico.Unidades.Unidad1
 {
     public class Procedimientos
     {
-
         private static double CalcularMetodo(string metodo, double Xi, double Xd, string funcion)
         {
             Calculo AnalizadorFunciones = new();
@@ -76,8 +75,9 @@ namespace AnalsisNumerico.Unidades.Unidad1
                         MessageBox.Show("El valor ingresado en el Limite derecho es la raiz");
                         return salida;
                     }
+                    
                     //Verificamos que el intervalo contenga la raiz
-                    else if (AnalizadorFunciones.EvaluaFx(datosEntrada.Xi) * AnalizadorFunciones.EvaluaFx(datosEntrada.Xd) > 0)
+                    if (AnalizadorFunciones.EvaluaFx(datosEntrada.Xi) * AnalizadorFunciones.EvaluaFx(datosEntrada.Xd) > 0)
                     {
                         double funcXi = AnalizadorFunciones.EvaluaFx(datosEntrada.Xi);
                         double funXd = AnalizadorFunciones.EvaluaFx(datosEntrada.Xd);
@@ -85,13 +85,14 @@ namespace AnalsisNumerico.Unidades.Unidad1
                         MessageBox.Show("La raiz no se encuentra en el intervalo ingresado");
                         break;
                     }
-                    else if (AnalizadorFunciones.EvaluaFx(datosEntrada.Xi) * AnalizadorFunciones.EvaluaFx(datosEntrada.Xd) < 0)
+                    
+                    if (AnalizadorFunciones.EvaluaFx(datosEntrada.Xi) * AnalizadorFunciones.EvaluaFx(datosEntrada.Xd) < 0)
                     {
                         cont++;
                         xr = CalcularMetodo(datosEntrada.metodo, datosEntrada.Xi, datosEntrada.Xd, datosEntrada.Funcion);
                         Err = Math.Abs((xr - xrAnterior) / xr);
 
-                        if (Math.Abs(AnalizadorFunciones.EvaluaFx(xr)) < datosEntrada.Tole || Err < datosEntrada.Tole)
+                        if (Math.Abs((double)AnalizadorFunciones.EvaluaFx(xr)) < datosEntrada.Tole || Err < datosEntrada.Tole)
                             break;
                     }
 
@@ -128,7 +129,8 @@ namespace AnalsisNumerico.Unidades.Unidad1
 
             return salida;
         }
-        //Con este metodo podemos calcular el metodo de Nweton-Rapshon y de la Secante
+        
+        // Metodo para calcular Newton-Rapshon y Secante
         public static SalidaMA MetodoAbierto(EntradaMA datosEntrada)
         {
             Calculo analizadorFunciones = new();
@@ -147,8 +149,9 @@ namespace AnalsisNumerico.Unidades.Unidad1
             {
                 double Error = 0;
                 double Xr = 0;
+                
                 //Vemos si el valor ingresado es la raiz
-                if (Math.Abs(analizadorFunciones.EvaluaFx(Xi)) < tolerancia)
+                if (Math.Abs((double)analizadorFunciones.EvaluaFx(Xi)) < tolerancia)
                 {
                     Resultado.ErrRelativo = Error;
                     Resultado.Converge = true;
@@ -158,8 +161,9 @@ namespace AnalsisNumerico.Unidades.Unidad1
 
                     return Resultado;
                 }
+                
                 //Vemos si el valor ingresado es la raiz
-                else if (Math.Abs(analizadorFunciones.EvaluaFx(Xd)) < tolerancia && metodo == "Secante")
+                if (Math.Abs((double)analizadorFunciones.EvaluaFx(Xd)) < tolerancia && metodo == "Secante")
                 {
                     Resultado.ErrRelativo = Error;
                     Resultado.Converge = true;
@@ -208,7 +212,7 @@ namespace AnalsisNumerico.Unidades.Unidad1
                     }
                     Error = Math.Abs((Xr - XrAnterior) / Xr);
                     //Verificamos si encontramos la Raiz
-                    if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) < tolerancia || Error < tolerancia)
+                    if (Math.Abs((double)analizadorFunciones.EvaluaFx(Xr)) < tolerancia || Error < tolerancia)
                     {
                         Resultado.ErrRelativo = Error;
                         Resultado.Converge = true;
@@ -233,7 +237,7 @@ namespace AnalsisNumerico.Unidades.Unidad1
                     }
                 }
                 //Verificamos si encontramos la Raiz
-                if (Math.Abs(analizadorFunciones.EvaluaFx(Xr)) >= tolerancia && Error >= tolerancia)
+                if (Math.Abs((double)analizadorFunciones.EvaluaFx(Xr)) >= tolerancia && Error >= tolerancia)
                 {
                     Resultado.ErrRelativo = Error;
                     Resultado.Converge = true;
