@@ -16,6 +16,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "GonzaSaliva"
+  }
+}]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/PabloViano/AnalisisNumerico2024-Perret-Saliva-Viano.git",
@@ -87,7 +93,7 @@
       <updated>1724872355473</updated>
       <workItem from="1724872358412" duration="692000" />
       <workItem from="1725913782582" duration="311000" />
-      <workItem from="1725917793940" duration="465000" />
+      <workItem from="1725917793940" duration="678000" />
     </task>
     <task id="LOCAL-00001" summary="Reorganizacion de codigo y desarrollo Unidad 2">
       <option name="closed" value="true" />
