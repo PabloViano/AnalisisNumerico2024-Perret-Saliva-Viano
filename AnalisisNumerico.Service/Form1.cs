@@ -14,5 +14,10 @@ namespace AnalsisNumerico
             Unidad1 unidad1 = new Unidad1();
             unidad1.ShowDialog();
         }
+
+        private void ImagenLogoPrincipal_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

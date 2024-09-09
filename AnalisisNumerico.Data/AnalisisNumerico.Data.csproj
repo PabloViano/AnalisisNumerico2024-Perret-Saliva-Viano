@@ -8,16 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Unidad3\**" />
+    <Compile Remove="Unidad4\**" />
+    <EmbeddedResource Remove="Unidad3\**" />
+    <EmbeddedResource Remove="Unidad4\**" />
+    <None Remove="Unidad3\**" />
+    <None Remove="Unidad4\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Unidad1\" />
-    <Folder Include="Unidad3\Request\" />
-    <Folder Include="Unidad3\Response\" />
-    <Folder Include="Unidad4\Request\" />
-    <Folder Include="Unidad4\Response\" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Calculus">
-      <HintPath>..\Calculus.dll</HintPath>
+      <HintPath>..\..\..\Documentos\UCSE\3 Año\Analisis Numérico\Calculus.dll</HintPath>
     </Reference>
   </ItemGroup>
 
