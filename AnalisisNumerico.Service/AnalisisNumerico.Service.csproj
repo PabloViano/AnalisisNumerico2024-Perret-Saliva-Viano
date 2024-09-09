@@ -10,17 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD:AnalisisNumerico.Service/AnalisisNumerico.Service.csproj
     <ProjectReference Include="..\AnalisisNumerico.Data\AnalisisNumerico.Data.csproj" />
-=======
-    <ProjectReference Include="..\Entidades\Entidades.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Calculus">
-      <HintPath>..\..\Calculus-C-dll-and-Java-Android-\Calculus.dll</HintPath>
-    </Reference>
->>>>>>> c39ca8dfa6f00c5b0febf519eb8b2ae6c5d2cab4:AnalsisNumerico/AnalsisNumerico.csproj
   </ItemGroup>
 
   <ItemGroup>
@@ -42,12 +32,6 @@
     <Folder Include="Unidad3\" />
     <Folder Include="Unidad4\" />
     <Folder Include="Unidades\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Calculus">
-      <HintPath>..\Calculus.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

@@ -7,7 +7,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e7acf13-2cec-4429-92f5-1a667588f404" name="Changes" comment="Commit" />
+    <list default="true" id="4e7acf13-2cec-4429-92f5-1a667588f404" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AnalisisNumerico.Data/Unidad2/Request/MatrizModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AnalisisNumerico.Data/Unidad2/Response/ResponseUnidad2.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad2/Metodos/SistemaEcuacionesService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalisisNumerico.Ser/Unidad1/Metodos/Procedimientos.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Ser/Unidad1/Metodos/Procedimientos.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico.sln" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/AnalsisNumerico.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/AnalisisNumerico.Service.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Form1.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Form1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Form1.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Properties/Resources.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Properties/Resources.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Properties/Resources.resx" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Properties/Resources.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Metodos/Biseccion.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Metodos/Biseccion.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Metodos/Biseccion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Metodos/Biseccion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Metodos/Biseccion.resx" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Metodos/Biseccion.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Metodos/NewtonRapshon.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Metodos/NewtonRapshon.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Metodos/NewtonRapshon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Metodos/NewtonRapshon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Metodos/NewtonRapshon.resx" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Metodos/NewtonRapshon.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Metodos/ReglaFalsa.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Metodos/ReglaFalsa.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Metodos/ReglaFalsa.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Metodos/ReglaFalsa.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Metodos/ReglaFalsa.resx" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Metodos/ReglaFalsa.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Metodos/Secante.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Metodos/Secante.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Metodos/Secante.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Metodos/Secante.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Metodos/Secante.resx" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Metodos/Secante.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Procedimientos.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Procedimientos.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Unidad1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Unidad1.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Unidad1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Unidad1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalsisNumerico/Unidades/Unidad1/Unidad1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Unidad1.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entidades/Entidades.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Data/AnalisisNumerico.Data.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entidades/EntradaMA.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Data/Unidad1/Request/EntradaMA.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entidades/EntradaMC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Data/Unidad1/Request/EntradaMC.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entidades/SalidaMA.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Data/Unidad1/Response/SalidaMA.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entidades/SalidaMC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalisisNumerico.Data/Unidad1/Response/SalidaMC.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +50,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
   "lastFilter": {
     "state": "OPEN",
@@ -28,12 +63,11 @@
     "accountId": "d6d5dc2c-a4b4-4d69-851d-e67b8ef42503"
   }
 }]]></component>
+=======
+>>>>>>> parent of c5fa846 (Merge branch 'master' of https://github.com/PabloViano/AnalisisNumerico2024-Perret-Saliva-Viano)
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/AnalisisNumerico.Service/Form1.Designer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/AnalisisNumerico.Service/Unidad1/Procedimientos.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/AnalisisNumerico.Service/Unidad2/Metodos/SistemaEcuacionesService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AnalisisNumerico.Data/Unidad1/Procedimientos.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -93,28 +127,19 @@
       <updated>1724872355473</updated>
       <workItem from="1724872358412" duration="692000" />
       <workItem from="1725913782582" duration="311000" />
+<<<<<<< HEAD
       <workItem from="1725917793940" duration="678000" />
+=======
+      <workItem from="1725917793940" duration="160000" />
+>>>>>>> parent of c5fa846 (Merge branch 'master' of https://github.com/PabloViano/AnalisisNumerico2024-Perret-Saliva-Viano)
     </task>
-    <task id="LOCAL-00001" summary="Reorganizacion de codigo y desarrollo Unidad 2">
-      <option name="closed" value="true" />
-      <created>1725917995586</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1725917995586</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Reorganizacion de codigo y desarrollo Unidad 2" />
-    <MESSAGE value="Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit" />
   </component>
 </project>
