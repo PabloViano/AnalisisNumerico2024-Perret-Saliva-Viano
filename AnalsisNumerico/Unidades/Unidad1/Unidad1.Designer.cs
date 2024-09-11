@@ -39,32 +39,28 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BorderStyle = BorderStyle.Fixed3D;
-            label1.FlatStyle = FlatStyle.Flat;
-            label1.Font = new Font("Berlin Sans FB", 15F);
-            label1.Location = new Point(54, 19);
+            label1.Font = new Font("Segoe UI", 15F);
+            label1.Location = new Point(51, 25);
             label1.Name = "label1";
-            label1.Size = new Size(160, 25);
+            label1.Size = new Size(221, 35);
             label1.TabIndex = 0;
             label1.Text = "Metodos Cerrados";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Font = new Font("Berlin Sans FB", 15F);
-            label2.Location = new Point(421, 19);
+            label2.Font = new Font("Segoe UI", 15F);
+            label2.Location = new Point(481, 25);
             label2.Name = "label2";
-            label2.Size = new Size(154, 25);
+            label2.Size = new Size(214, 35);
             label2.TabIndex = 1;
             label2.Text = "Metodos Abiertos";
             // 
             // button1
             // 
-            button1.Location = new Point(45, 78);
-            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Location = new Point(51, 104);
             button1.Name = "button1";
-            button1.Size = new Size(192, 35);
+            button1.Size = new Size(220, 47);
             button1.TabIndex = 2;
             button1.Text = "Bisección";
             button1.UseVisualStyleBackColor = true;
@@ -72,10 +68,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(45, 141);
-            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Location = new Point(51, 188);
             button2.Name = "button2";
-            button2.Size = new Size(192, 35);
+            button2.Size = new Size(220, 47);
             button2.TabIndex = 3;
             button2.Text = "Regla Falsa";
             button2.UseVisualStyleBackColor = true;
@@ -83,10 +78,9 @@
             // 
             // button3
             // 
-            button3.Location = new Point(408, 78);
-            button3.Margin = new Padding(3, 2, 3, 2);
+            button3.Location = new Point(481, 104);
             button3.Name = "button3";
-            button3.Size = new Size(192, 35);
+            button3.Size = new Size(220, 47);
             button3.TabIndex = 4;
             button3.Text = "Newton - Rapshon";
             button3.UseVisualStyleBackColor = true;
@@ -94,10 +88,9 @@
             // 
             // button4
             // 
-            button4.Location = new Point(408, 141);
-            button4.Margin = new Padding(3, 2, 3, 2);
+            button4.Location = new Point(481, 188);
             button4.Name = "button4";
-            button4.Size = new Size(192, 35);
+            button4.Size = new Size(220, 47);
             button4.TabIndex = 5;
             button4.Text = "Secante";
             button4.UseVisualStyleBackColor = true;
@@ -105,17 +98,16 @@
             // 
             // Unidad1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(800, 450);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Unidad1";
             Text = "Unidad1";
             ResumeLayout(false);

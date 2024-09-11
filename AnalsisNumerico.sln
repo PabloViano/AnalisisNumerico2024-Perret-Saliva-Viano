@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisisNumerico.Service", "AnalisisNumerico.Service\AnalisisNumerico.Service.csproj", "{941CCFB2-FDCF-41ED-BB85-5468134AE659}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalsisNumerico", "AnalsisNumerico\AnalsisNumerico.csproj", "{941CCFB2-FDCF-41ED-BB85-5468134AE659}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisisNumerico.Data", "AnalisisNumerico.Data\AnalisisNumerico.Data.csproj", "{CB0CC645-0DFA-46B1-BD1C-39BF0E6DDF78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{CB0CC645-0DFA-46B1-BD1C-39BF0E6DDF78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

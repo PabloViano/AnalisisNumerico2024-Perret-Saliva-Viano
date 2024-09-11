@@ -1,4 +1,5 @@
 using AnalsisNumerico.Unidades.Unidad1;
+using AnalsisNumerico.Unidades.Unidad2;
 
 namespace AnalsisNumerico
 {
@@ -15,9 +16,10 @@ namespace AnalsisNumerico
             unidad1.ShowDialog();
         }
 
-        private void ImagenLogoPrincipal_Click(object sender, EventArgs e)
+        private void button_menu_U2_Click(object sender, EventArgs e)
         {
-
+            Unidad2 unidad2 = new Unidad2();
+            unidad2.ShowDialog();
         }
     }
 }

@@ -6,29 +6,10 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>AnalsisNumerico</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Unidad3\**" />
-    <Compile Remove="Unidad4\**" />
-    <Compile Remove="Unidades\**" />
-    <EmbeddedResource Remove="Unidad3\**" />
-    <EmbeddedResource Remove="Unidad4\**" />
-    <EmbeddedResource Remove="Unidades\**" />
-    <None Remove="Unidad3\**" />
-    <None Remove="Unidad4\**" />
-    <None Remove="Unidades\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\AnalisisNumerico.Data\AnalisisNumerico.Data.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Calculus">
-      <HintPath>..\..\..\Documentos\UCSE\3 Año\Analisis Numérico\Calculus.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +25,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Unidades\Unidad4\" />
+    <Folder Include="Unidades\Unidad3\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Calculus">
+      <HintPath>..\..\..\..\Universidad\AN-TP\Calculus.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
