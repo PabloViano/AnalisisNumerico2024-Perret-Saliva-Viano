@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             boton_menu_U1 = new Button();
             button_menu_U2 = new Button();
             button_menu_U3 = new Button();
@@ -36,10 +37,15 @@
             // 
             // boton_menu_U1
             // 
-            boton_menu_U1.BackColor = SystemColors.ButtonFace;
-            boton_menu_U1.Location = new Point(25, 21);
+            boton_menu_U1.BackColor = SystemColors.ControlLight;
+            boton_menu_U1.FlatAppearance.BorderColor = Color.Bisque;
+            boton_menu_U1.FlatAppearance.BorderSize = 3;
+            boton_menu_U1.FlatStyle = FlatStyle.Flat;
+            boton_menu_U1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            boton_menu_U1.Location = new Point(45, 39);
+            boton_menu_U1.Margin = new Padding(3, 2, 3, 2);
             boton_menu_U1.Name = "boton_menu_U1";
-            boton_menu_U1.Size = new Size(235, 49);
+            boton_menu_U1.Size = new Size(206, 37);
             boton_menu_U1.TabIndex = 0;
             boton_menu_U1.Text = "Unidad 1";
             boton_menu_U1.UseVisualStyleBackColor = false;
@@ -47,10 +53,15 @@
             // 
             // button_menu_U2
             // 
-            button_menu_U2.BackColor = SystemColors.ButtonFace;
-            button_menu_U2.Location = new Point(25, 133);
+            button_menu_U2.BackColor = SystemColors.ControlLight;
+            button_menu_U2.FlatAppearance.BorderColor = Color.Bisque;
+            button_menu_U2.FlatAppearance.BorderSize = 3;
+            button_menu_U2.FlatStyle = FlatStyle.Flat;
+            button_menu_U2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button_menu_U2.Location = new Point(45, 116);
+            button_menu_U2.Margin = new Padding(3, 2, 3, 2);
             button_menu_U2.Name = "button_menu_U2";
-            button_menu_U2.Size = new Size(235, 49);
+            button_menu_U2.Size = new Size(206, 37);
             button_menu_U2.TabIndex = 1;
             button_menu_U2.Text = "Unidad 2";
             button_menu_U2.UseVisualStyleBackColor = false;
@@ -58,37 +69,50 @@
             // 
             // button_menu_U3
             // 
-            button_menu_U3.BackColor = SystemColors.ButtonFace;
-            button_menu_U3.Location = new Point(25, 251);
+            button_menu_U3.BackColor = SystemColors.ControlLight;
+            button_menu_U3.FlatAppearance.BorderColor = Color.Bisque;
+            button_menu_U3.FlatAppearance.BorderSize = 3;
+            button_menu_U3.FlatStyle = FlatStyle.Flat;
+            button_menu_U3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button_menu_U3.Location = new Point(45, 195);
+            button_menu_U3.Margin = new Padding(3, 2, 3, 2);
             button_menu_U3.Name = "button_menu_U3";
-            button_menu_U3.Size = new Size(235, 49);
+            button_menu_U3.Size = new Size(206, 37);
             button_menu_U3.TabIndex = 2;
             button_menu_U3.Text = "Unidad 3";
             button_menu_U3.UseVisualStyleBackColor = false;
             // 
             // button_menu_U4
             // 
-            button_menu_U4.BackColor = SystemColors.ButtonFace;
+            button_menu_U4.BackColor = SystemColors.ControlLight;
+            button_menu_U4.FlatAppearance.BorderColor = Color.Bisque;
+            button_menu_U4.FlatAppearance.BorderSize = 3;
+            button_menu_U4.FlatStyle = FlatStyle.Flat;
+            button_menu_U4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button_menu_U4.ForeColor = SystemColors.ActiveCaptionText;
-            button_menu_U4.Location = new Point(25, 371);
+            button_menu_U4.Location = new Point(45, 276);
+            button_menu_U4.Margin = new Padding(3, 2, 3, 2);
             button_menu_U4.Name = "button_menu_U4";
-            button_menu_U4.Size = new Size(235, 49);
+            button_menu_U4.Size = new Size(206, 37);
             button_menu_U4.TabIndex = 3;
             button_menu_U4.Text = "Unidad 4";
             button_menu_U4.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(800, 451);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(717, 350);
             Controls.Add(button_menu_U4);
             Controls.Add(button_menu_U3);
             Controls.Add(button_menu_U2);
             Controls.Add(boton_menu_U1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Análisis Numérico";
+            Load += Form1_Load;
             ResumeLayout(false);
         }
 

@@ -21,5 +21,10 @@ namespace AnalsisNumerico
             Unidad2 unidad2 = new Unidad2();
             unidad2.ShowDialog();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

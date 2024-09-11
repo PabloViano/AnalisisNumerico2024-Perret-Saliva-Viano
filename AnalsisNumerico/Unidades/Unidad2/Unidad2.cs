@@ -19,7 +19,7 @@ namespace AnalsisNumerico.Unidades.Unidad2
         }
 
         private void Unidad2_Load(object sender, EventArgs e)
-        {   
+        {
             CargarComboBoxMetodos();
             CargarComboBoxDimension();
 
@@ -106,7 +106,7 @@ namespace AnalsisNumerico.Unidades.Unidad2
             {
                 for (int col = 0; col < dimension + 1; col++)
                 {
-                    string nombre = $"({row},{col})"; //"(" + row.ToString() + "," + col.ToString() + ")";
+                    string nombre = $"({row},{col})";
                     TextBox textBox = new TextBox();
                     textBox.Name = nombre;
                     ToolTip toolTip = new ToolTip();
@@ -126,8 +126,6 @@ namespace AnalsisNumerico.Unidades.Unidad2
                 puntoX = 30;
                 puntoY += 30;
             }
-
-            //Ahora si activo el boton Calcular
             btnCalcular.Enabled = true;
         }
 
@@ -199,6 +197,11 @@ namespace AnalsisNumerico.Unidades.Unidad2
                 txbIteraciones.Visible = false;
                 txbTolerancia.Visible = false;
             }
+        }
+
+        private void lblMetodo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
