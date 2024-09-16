@@ -114,9 +114,14 @@ namespace AnalsisNumerico.Unidades.Unidad2
                     textBox.Location = new Point(puntoX, puntoY);
                     textBox.Size = new Size(80, 30);
 
+                    if (col == row)
+                    {
+                        textBox.BackColor = Color.FromArgb(173, 216, 230); // Celeste intermedio
+                    }
+
                     if (col == dimension)
                     {
-                        textBox.BackColor = Color.LightSkyBlue;
+                        textBox.BackColor = Color.FromArgb(240, 255, 255); // Un celeste muy claro
                     }
 
                     groupBoxMetodo.Controls.Add(textBox);
@@ -164,22 +169,25 @@ namespace AnalsisNumerico.Unidades.Unidad2
                     break;
             }
 
-            string resultados = "";
-            if (response != null)
+            if(response != null)
             {
+                string resultados = "";
                 for (int i = 0; i < response.VectorRespuesta!.Length; i++)
                 {
-                    resultados += $"X{i + 1} = {response.VectorRespuesta[i]}\n";
+                    double valorRedondeado = Math.Ceiling(response.VectorRespuesta[i] * 100000) / 100000;
+                    resultados += $"X{i + 1} = {valorRedondeado:F5}\n"; // Mostrar con 5 decimales
                 }
-                //Le ingreso la ultima posicion del vectorResultado que es la cantidad de iteraciones que se realizaron
+
+                resultados += "\n";
                 resultados += $"Se realizaron {response.Iteraciones} iteraciones.";
 
+                // Mostrar los resultados en un Form personalizado
+                MostrarResultados(resultados); // Mostrar el Form como un diálogo modal
             }
             else
             {
-                resultados = $"Se pasó de las {txbIteraciones.Text} iteraciones.";
+                MessageBox.Show($"Se pasó de las {txbIteraciones.Text} iteraciones.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            MessageBox.Show(resultados, "Los valores son los siguientes:", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void comboBoxMetodo_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -202,6 +210,34 @@ namespace AnalsisNumerico.Unidades.Unidad2
         private void lblMetodo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MostrarResultados(string resultados)
+        {
+            // Crear un nuevo formulario
+            Form resultForm = new Form
+            {
+                Text = "Valores Resultantes",
+                Size = new Size(400, 300),
+                StartPosition = FormStartPosition.CenterScreen // Centrar la ventana en la pantalla
+            };
+
+            // Crear un RichTextBox para mostrar los resultados
+            RichTextBox richTextBoxResultados = new RichTextBox
+            {
+                Text = resultados,
+                Dock = DockStyle.Fill,                        // Ocupa todo el espacio del Form
+                Font = new Font("Segoe UI", 10),              // Cambiar la fuente
+                BackColor = Color.LightGray,                  // Fondo gris claro
+                ForeColor = Color.DarkBlue,                   // Texto en azul oscuro
+                ReadOnly = true                               // Solo lectura
+            };
+
+            // Añadir el RichTextBox al Form
+            resultForm.Controls.Add(richTextBoxResultados);
+
+            // Mostrar el formulario como diálogo modal
+            resultForm.ShowDialog();
         }
     }
 }
