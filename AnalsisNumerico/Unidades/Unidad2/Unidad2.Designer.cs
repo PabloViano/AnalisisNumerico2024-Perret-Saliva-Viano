@@ -39,6 +39,11 @@
             btnGenerar = new Button();
             btnCalcular = new Button();
             groupBoxMetodo = new GroupBox();
+            lblResultados = new Label();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            groupBoxResultados = new GroupBox();
+            richTextBoxResultados = new RichTextBox();
+            groupBoxResultados.SuspendLayout();
             SuspendLayout();
             // 
             // lblDimension
@@ -49,6 +54,7 @@
             lblDimension.Size = new Size(83, 15);
             lblDimension.TabIndex = 0;
             lblDimension.Text = "DIMENSIONES";
+            lblDimension.Click += lblDimension_Click;
             // 
             // lblIteracion
             // 
@@ -64,7 +70,7 @@
             lblMetodo.AutoSize = true;
             lblMetodo.Location = new Point(330, 36);
             lblMetodo.Name = "lblMetodo";
-            lblMetodo.Size = new Size(55, 15);
+            lblMetodo.Size = new Size(56, 15);
             lblMetodo.TabIndex = 2;
             lblMetodo.Text = "MÉTODO";
             lblMetodo.Click += lblMetodo_Click;
@@ -74,7 +80,7 @@
             lblTolerancia.AutoSize = true;
             lblTolerancia.Location = new Point(330, 100);
             lblTolerancia.Name = "lblTolerancia";
-            lblTolerancia.Size = new Size(76, 15);
+            lblTolerancia.Size = new Size(77, 15);
             lblTolerancia.TabIndex = 3;
             lblTolerancia.Text = "TOLERANCIA";
             // 
@@ -85,6 +91,7 @@
             comboBoxDimension.Name = "comboBoxDimension";
             comboBoxDimension.Size = new Size(121, 23);
             comboBoxDimension.TabIndex = 4;
+            comboBoxDimension.SelectedIndexChanged += comboBoxDimension_SelectedIndexChanged;
             // 
             // comboBoxMetodo
             // 
@@ -122,9 +129,9 @@
             // btnCalcular
             // 
             btnCalcular.Font = new Font("Segoe UI", 12F);
-            btnCalcular.Location = new Point(610, 95);
+            btnCalcular.Location = new Point(601, 85);
             btnCalcular.Name = "btnCalcular";
-            btnCalcular.Size = new Size(111, 43);
+            btnCalcular.Size = new Size(103, 40);
             btnCalcular.TabIndex = 9;
             btnCalcular.Text = "CALCULAR";
             btnCalcular.UseVisualStyleBackColor = true;
@@ -132,18 +139,48 @@
             // 
             // groupBoxMetodo
             // 
-            groupBoxMetodo.Location = new Point(35, 173);
+            groupBoxMetodo.Location = new Point(21, 166);
             groupBoxMetodo.Name = "groupBoxMetodo";
-            groupBoxMetodo.Size = new Size(735, 252);
+            groupBoxMetodo.Size = new Size(476, 252);
             groupBoxMetodo.TabIndex = 10;
             groupBoxMetodo.TabStop = false;
+            // 
+            // lblResultados
+            // 
+            lblResultados.AutoSize = true;
+            lblResultados.Font = new Font("Palatino Linotype", 20F, FontStyle.Italic);
+            lblResultados.Location = new Point(552, 166);
+            lblResultados.Name = "lblResultados";
+            lblResultados.Size = new Size(194, 37);
+            lblResultados.TabIndex = 11;
+            lblResultados.Text = "RESULTADOS";
+            lblResultados.Click += label1_Click;
+            // 
+            // groupBoxResultados
+            // 
+            groupBoxResultados.Controls.Add(richTextBoxResultados);
+            groupBoxResultados.Location = new Point(530, 206);
+            groupBoxResultados.Name = "groupBoxResultados";
+            groupBoxResultados.Size = new Size(243, 212);
+            groupBoxResultados.TabIndex = 12;
+            groupBoxResultados.TabStop = false;
+            // 
+            // richTextBoxResultados
+            // 
+            richTextBoxResultados.Location = new Point(6, 11);
+            richTextBoxResultados.Name = "richTextBoxResultados";
+            richTextBoxResultados.Size = new Size(231, 195);
+            richTextBoxResultados.TabIndex = 0;
+            richTextBoxResultados.Text = "";
             // 
             // Unidad2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(groupBoxResultados);
+            Controls.Add(lblResultados);
             Controls.Add(txbTolerancia);
             Controls.Add(lblTolerancia);
             Controls.Add(txbIteraciones);
@@ -155,9 +192,11 @@
             Controls.Add(lblMetodo);
             Controls.Add(lblDimension);
             Controls.Add(groupBoxMetodo);
+            Font = new Font("Segoe UI", 9F, FontStyle.Italic);
             Name = "Unidad2";
             Text = "Unidad2";
             Load += Unidad2_Load;
+            groupBoxResultados.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -175,5 +214,9 @@
         private Button btnGenerar;
         private Button btnCalcular;
         private GroupBox groupBoxMetodo;
+        private Label lblResultados;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private GroupBox groupBoxResultados;
+        private RichTextBox richTextBoxResultados;
     }
 }

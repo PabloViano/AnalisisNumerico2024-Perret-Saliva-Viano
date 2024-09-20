@@ -43,12 +43,9 @@ namespace AnalsisNumerico.Unidades.Unidad2
 
         private void CargarComboBoxDimension()
         {
-            string[] dimensionesPosibles = { "2", "3", "4", "5" };
+            string[] dimensionesPosibles = { "2", "3", "4", "5", "6", "7" };
 
             comboBoxDimension.Items.AddRange(dimensionesPosibles);
-
-            //Indica que por default la eleccion es 2
-            comboBoxDimension.SelectedItem = "2";
 
             //Hacemos que no pueda ingresar texto
             comboBoxDimension.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -78,20 +75,10 @@ namespace AnalsisNumerico.Unidades.Unidad2
 
         private void comboBoxMetodo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxMetodo.Text == "Gauss Seidel")
-            {
-                lblIteracion.Visible = true;
-                lblTolerancia.Visible = true;
-                txbIteraciones.Visible = true;
-                txbTolerancia.Visible = true;
-            }
-            else
-            {
-                lblIteracion.Visible = false;
-                lblTolerancia.Visible = false;
-                txbIteraciones.Visible = false;
-                txbTolerancia.Visible = false;
-            }
+            lblIteracion.Visible = true;
+            lblTolerancia.Visible = true;
+            txbIteraciones.Visible = true;
+            txbTolerancia.Visible = true;
         }
 
         private void btnGenerar_Click_1(object sender, EventArgs e)
@@ -139,9 +126,6 @@ namespace AnalsisNumerico.Unidades.Unidad2
             int dimension = int.Parse(comboBoxDimension.SelectedItem.ToString()!);
             double[,] matriz = GuardarMatriz(dimension);
 
-            //Muestro un mensaje en pantalla
-            MessageBox.Show("Matriz cargada con exito");
-
             double[] vectorResultado = new double[dimension];
 
             ResponseUnidad2 response = new ResponseUnidad2(vectorResultado, 0);
@@ -169,7 +153,7 @@ namespace AnalsisNumerico.Unidades.Unidad2
                     break;
             }
 
-            if(response != null)
+            if (response != null)
             {
                 string resultados = "";
                 for (int i = 0; i < response.VectorRespuesta!.Length; i++)
@@ -214,30 +198,43 @@ namespace AnalsisNumerico.Unidades.Unidad2
 
         private void MostrarResultados(string resultados)
         {
-            // Crear un nuevo formulario
-            Form resultForm = new Form
+            // Verifica si el RichTextBox existe dentro del GroupBox de Resultados
+            if (groupBoxResultados.Controls.Contains(richTextBoxResultados))
             {
-                Text = "Valores Resultantes",
-                Size = new Size(400, 300),
-                StartPosition = FormStartPosition.CenterScreen // Centrar la ventana en la pantalla
-            };
+                // Actualiza el contenido del RichTextBox con los resultados
+                richTextBoxResultados.Text = resultados;
+                richTextBoxResultados.Font = new Font("Segoe UI", 12, FontStyle.Italic); // Configura la fuente
+                richTextBoxResultados.BackColor = SystemColors.ActiveCaption;      // Fondo gris claro
+                richTextBoxResultados.ForeColor = Color.Black;                     // Texto en azul oscuro
+                richTextBoxResultados.ReadOnly = true;                             // Solo lectura
+                richTextBoxResultados.BorderStyle = BorderStyle.None;
 
-            // Crear un RichTextBox para mostrar los resultados
-            RichTextBox richTextBoxResultados = new RichTextBox
+                // Ajustar propiedades del groupBoxResultados para que no muestre bordes y el fondo sea igual
+                groupBoxResultados.BackColor = SystemColors.ActiveCaption; // Fondo similar al RichTextBox
+                groupBoxResultados.FlatStyle = FlatStyle.Flat;             // Opcional: reduce la apariencia del borde
+
+                // Añadir el RichTextBox al groupBoxResultados
+                groupBoxResultados.Controls.Add(richTextBoxResultados);
+            }
+            else
             {
-                Text = resultados,
-                Dock = DockStyle.Fill,                        // Ocupa todo el espacio del Form
-                Font = new Font("Segoe UI", 10),              // Cambiar la fuente
-                BackColor = Color.LightGray,                  // Fondo gris claro
-                ForeColor = Color.DarkBlue,                   // Texto en azul oscuro
-                ReadOnly = true                               // Solo lectura
-            };
+                MessageBox.Show("El control para mostrar los resultados no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-            // Añadir el RichTextBox al Form
-            resultForm.Controls.Add(richTextBoxResultados);
+        private void label1_Click(object sender, EventArgs e)
+        {
 
-            // Mostrar el formulario como diálogo modal
-            resultForm.ShowDialog();
+        }
+
+        private void comboBoxDimension_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDimension_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
