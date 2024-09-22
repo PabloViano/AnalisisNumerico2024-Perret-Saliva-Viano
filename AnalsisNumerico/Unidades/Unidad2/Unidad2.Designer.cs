@@ -167,6 +167,8 @@
             // 
             // richTextBoxResultados
             // 
+            richTextBoxResultados.BackColor = SystemColors.ActiveCaption;
+            richTextBoxResultados.BorderStyle = BorderStyle.None;
             richTextBoxResultados.Location = new Point(6, 11);
             richTextBoxResultados.Name = "richTextBoxResultados";
             richTextBoxResultados.Size = new Size(231, 195);
