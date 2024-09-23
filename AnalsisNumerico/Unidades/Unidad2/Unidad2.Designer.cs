@@ -144,6 +144,7 @@
             groupBoxMetodo.Size = new Size(476, 252);
             groupBoxMetodo.TabIndex = 10;
             groupBoxMetodo.TabStop = false;
+            groupBoxMetodo.Enter += groupBoxMetodo_Enter;
             // 
             // lblResultados
             // 
@@ -174,6 +175,7 @@
             richTextBoxResultados.Size = new Size(231, 195);
             richTextBoxResultados.TabIndex = 0;
             richTextBoxResultados.Text = "";
+            richTextBoxResultados.TextChanged += richTextBoxResultados_TextChanged;
             // 
             // Unidad2
             // 

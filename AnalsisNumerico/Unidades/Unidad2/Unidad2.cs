@@ -84,8 +84,8 @@ namespace AnalsisNumerico.Unidades.Unidad2
         private void btnGenerar_Click_1(object sender, EventArgs e)
         {
             int dimension = int.Parse(comboBoxDimension.SelectedItem.ToString()!);
-            int puntoX = 30;
-            int puntoY = 30;
+            int cellWidth = (groupBoxMetodo.Width - 40) / (dimension + 1); // Resta márgenes
+            int cellHeight = 30; // Altura fija
 
             groupBoxMetodo.Controls.Clear();
 
@@ -98,8 +98,8 @@ namespace AnalsisNumerico.Unidades.Unidad2
                     textBox.Name = nombre;
                     ToolTip toolTip = new ToolTip();
                     toolTip.SetToolTip(textBox, nombre);
-                    textBox.Location = new Point(puntoX, puntoY);
-                    textBox.Size = new Size(80, 30);
+                    textBox.Location = new Point(20 + col * cellWidth, 30 + row * cellHeight);
+                    textBox.Size = new Size(cellWidth, cellHeight);
 
                     if (col == row)
                     {
@@ -113,10 +113,7 @@ namespace AnalsisNumerico.Unidades.Unidad2
 
                     groupBoxMetodo.Controls.Add(textBox);
                     groupBoxMetodo.Show();
-                    puntoX += 90;
                 }
-                puntoX = 30;
-                puntoY += 30;
             }
             btnCalcular.Enabled = true;
         }
@@ -159,14 +156,21 @@ namespace AnalsisNumerico.Unidades.Unidad2
                 for (int i = 0; i < response.VectorRespuesta!.Length; i++)
                 {
                     double valorRedondeado = Math.Ceiling(response.VectorRespuesta[i] * 100000) / 100000;
-                    resultados += $"X{i + 1} = {valorRedondeado:F5}\n"; // Mostrar con 5 decimales
-                }
 
+                    // Condición para mostrar sin decimales si es entero
+                    if (valorRedondeado % 1 == 0)
+                    {
+                        resultados += $"X{i + 1} = {(int)valorRedondeado}\n"; // Mostrar sin decimales si es un entero
+                    }
+                    else
+                    {
+                        resultados += $"X{i + 1} = {valorRedondeado:F5}\n"; // Mostrar con 5 decimales si no es entero
+                    }
+                }
                 resultados += "\n";
                 resultados += $"Se realizaron {response.Iteraciones} iteraciones.";
 
-                // Mostrar los resultados en un Form personalizado
-                MostrarResultados(resultados); // Mostrar el Form como un diálogo modal
+                MostrarResultados(resultados);
             }
             else
             {
@@ -233,6 +237,16 @@ namespace AnalsisNumerico.Unidades.Unidad2
         }
 
         private void lblDimension_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBoxResultados_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBoxMetodo_Enter(object sender, EventArgs e)
         {
 
         }
