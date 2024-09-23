@@ -155,7 +155,7 @@ namespace AnalsisNumerico.Unidades.Unidad2
                 string resultados = "";
                 for (int i = 0; i < response.VectorRespuesta!.Length; i++)
                 {
-                    double valorRedondeado = Math.Ceiling(response.VectorRespuesta[i] * 100000) / 100000;
+                    double valorRedondeado = response.VectorRespuesta[i];
 
                     // Condición para mostrar sin decimales si es entero
                     if (valorRedondeado % 1 == 0)
@@ -164,11 +164,10 @@ namespace AnalsisNumerico.Unidades.Unidad2
                     }
                     else
                     {
-                        resultados += $"X{i + 1} = {valorRedondeado:F5}\n"; // Mostrar con 5 decimales si no es entero
+                        resultados += $"X{i + 1} = {valorRedondeado}\n"; 
                     }
                 }
                 resultados += "\n";
-                resultados += $"Se realizaron {response.Iteraciones} iteraciones.";
 
                 MostrarResultados(resultados);
             }
