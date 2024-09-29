@@ -23,7 +23,7 @@
 
   <ItemGroup>
     <Reference Include="Calculus">
-      <HintPath>..\..\..\Calculus.dll</HintPath>
+      <HintPath>..\..\Calculus.dll</HintPath>
     </Reference>
   </ItemGroup>
 
