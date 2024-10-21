@@ -8,26 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AnalsisNumerico.Unidades.U3
+namespace AnalsisNumerico.Unidades.Unidad4
 {
-    public partial class Unidad3 : Form
+    public partial class Unidad4 : Form
     {
-        public Unidad3()
+        public Unidad4()
         {
             InitializeComponent();
         }
 
-        private void Unidad3_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBoxEntrada_Enter(object sender, EventArgs e)
         {
 
         }

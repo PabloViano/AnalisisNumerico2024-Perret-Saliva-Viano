@@ -10,11 +10,8 @@
 
   <ItemGroup>
     <Compile Remove="Unidades\Unidad3\**" />
-    <Compile Remove="Unidades\Unidad4\**" />
     <EmbeddedResource Remove="Unidades\Unidad3\**" />
-    <EmbeddedResource Remove="Unidades\Unidad4\**" />
     <None Remove="Unidades\Unidad3\**" />
-    <None Remove="Unidades\Unidad4\**" />
   </ItemGroup>
 
   <ItemGroup>
