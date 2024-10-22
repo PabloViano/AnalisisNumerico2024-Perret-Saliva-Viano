@@ -30,7 +30,7 @@ namespace AnalsisNumerico.Unidades.U3
         private void InitializeComponent()
         {
             groupBoxEntrada = new GroupBox();
-            textBox1 = new TextBox();
+            txtBoxY = new TextBox();
             richTextBox1 = new RichTextBox();
             comboBox1 = new ComboBox();
             btnBorrarTodos = new Button();
@@ -46,11 +46,11 @@ namespace AnalsisNumerico.Unidades.U3
             label1 = new Label();
             label2 = new Label();
             groupBoxSalida = new GroupBox();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
+            lblEfectividadAjuste = new Label();
+            lblCorrelacion = new Label();
+            lblFuncionObtenida = new Label();
             groupBoxGrafico = new GroupBox();
-            label6 = new Label();
+            lblGrafico = new Label();
             pictureBox1 = new PictureBox();
             groupBoxEntrada.SuspendLayout();
             groupBoxSalida.SuspendLayout();
@@ -60,7 +60,7 @@ namespace AnalsisNumerico.Unidades.U3
             // 
             // groupBoxEntrada
             // 
-            groupBoxEntrada.Controls.Add(textBox1);
+            groupBoxEntrada.Controls.Add(txtBoxY);
             groupBoxEntrada.Controls.Add(richTextBox1);
             groupBoxEntrada.Controls.Add(comboBox1);
             groupBoxEntrada.Controls.Add(btnBorrarTodos);
@@ -81,12 +81,12 @@ namespace AnalsisNumerico.Unidades.U3
             groupBoxEntrada.Text = "Datos de Entrada";
             groupBoxEntrada.Enter += groupBoxEntrada_Enter;
             // 
-            // textBox1
+            // txtBoxY
             // 
-            textBox1.Location = new Point(192, 23);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(50, 23);
-            textBox1.TabIndex = 13;
+            txtBoxY.Location = new Point(192, 23);
+            txtBoxY.Name = "txtBoxY";
+            txtBoxY.Size = new Size(50, 23);
+            txtBoxY.TabIndex = 13;
             // 
             // richTextBox1
             // 
@@ -230,9 +230,9 @@ namespace AnalsisNumerico.Unidades.U3
             // 
             // groupBoxSalida
             // 
-            groupBoxSalida.Controls.Add(label5);
-            groupBoxSalida.Controls.Add(label4);
-            groupBoxSalida.Controls.Add(label3);
+            groupBoxSalida.Controls.Add(lblEfectividadAjuste);
+            groupBoxSalida.Controls.Add(lblCorrelacion);
+            groupBoxSalida.Controls.Add(lblFuncionObtenida);
             groupBoxSalida.Location = new Point(430, 61);
             groupBoxSalida.Name = "groupBoxSalida";
             groupBoxSalida.Size = new Size(478, 112);
@@ -240,65 +240,66 @@ namespace AnalsisNumerico.Unidades.U3
             groupBoxSalida.TabStop = false;
             groupBoxSalida.Text = "Datos de Salida";
             // 
-            // label5
+            // lblEfectividadAjuste
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(15, 75);
-            label5.Name = "label5";
-            label5.Size = new Size(110, 17);
-            label5.TabIndex = 2;
-            label5.Text = "Efectividad Ajuste";
+            lblEfectividadAjuste.AutoSize = true;
+            lblEfectividadAjuste.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEfectividadAjuste.Location = new Point(15, 75);
+            lblEfectividadAjuste.Name = "lblEfectividadAjuste";
+            lblEfectividadAjuste.Size = new Size(110, 17);
+            lblEfectividadAjuste.TabIndex = 2;
+            lblEfectividadAjuste.Text = "Efectividad Ajuste";
             // 
-            // label4
+            // lblCorrelacion
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(15, 52);
-            label4.Name = "label4";
-            label4.Size = new Size(92, 17);
-            label4.TabIndex = 1;
-            label4.Text = "Correlación (r)";
+            lblCorrelacion.AutoSize = true;
+            lblCorrelacion.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCorrelacion.Location = new Point(15, 52);
+            lblCorrelacion.Name = "lblCorrelacion";
+            lblCorrelacion.Size = new Size(92, 17);
+            lblCorrelacion.TabIndex = 1;
+            lblCorrelacion.Text = "Correlación (r)";
             // 
-            // label3
+            // lblFuncionObtenida
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(15, 28);
-            label3.Name = "label3";
-            label3.Size = new Size(110, 17);
-            label3.TabIndex = 0;
-            label3.Text = "Función Obtenida";
+            lblFuncionObtenida.AutoSize = true;
+            lblFuncionObtenida.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFuncionObtenida.Location = new Point(15, 28);
+            lblFuncionObtenida.Name = "lblFuncionObtenida";
+            lblFuncionObtenida.Size = new Size(110, 17);
+            lblFuncionObtenida.TabIndex = 0;
+            lblFuncionObtenida.Text = "Función Obtenida";
             // 
             // groupBoxGrafico
             // 
-            groupBoxGrafico.Controls.Add(label6);
+            groupBoxGrafico.Controls.Add(lblGrafico);
             groupBoxGrafico.Location = new Point(431, 179);
             groupBoxGrafico.Name = "groupBoxGrafico";
             groupBoxGrafico.Size = new Size(477, 286);
             groupBoxGrafico.TabIndex = 4;
             groupBoxGrafico.TabStop = false;
             // 
-            // label6
+            // lblGrafico
             // 
-            label6.AutoSize = true;
-            label6.FlatStyle = FlatStyle.Popup;
-            label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label6.Location = new Point(6, 19);
-            label6.Name = "label6";
-            label6.Size = new Size(77, 21);
-            label6.TabIndex = 5;
-            label6.Text = "GRÁFICO";
+            lblGrafico.AutoSize = true;
+            lblGrafico.FlatStyle = FlatStyle.Popup;
+            lblGrafico.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblGrafico.Location = new Point(6, 19);
+            lblGrafico.Name = "lblGrafico";
+            lblGrafico.Size = new Size(77, 21);
+            lblGrafico.TabIndex = 5;
+            lblGrafico.Text = "GRÁFICO";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.LogoUcse;
-            pictureBox1.Location = new Point(821, 9);
+            pictureBox1.Location = new Point(855, 9);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(116, 54);
+            pictureBox1.Size = new Size(53, 54);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // Unidad3
             // 
@@ -344,13 +345,13 @@ namespace AnalsisNumerico.Unidades.U3
         private Label label2;
         private ComboBox comboBox1;
         private RichTextBox richTextBox1;
-        private TextBox textBox1;
+        private TextBox txtBoxY;
         private GroupBox groupBoxSalida;
         private GroupBox groupBoxGrafico;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label6;
+        private Label lblEfectividadAjuste;
+        private Label lblCorrelacion;
+        private Label lblFuncionObtenida;
+        private Label lblGrafico;
         private PictureBox pictureBox1;
     }
 }

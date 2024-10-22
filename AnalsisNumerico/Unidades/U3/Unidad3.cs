@@ -19,7 +19,7 @@ namespace AnalsisNumerico.Unidades.U3
 
         private void Unidad3_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -28,6 +28,11 @@ namespace AnalsisNumerico.Unidades.U3
         }
 
         private void groupBoxEntrada_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
