@@ -9,18 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Unidades\Unidad3\**" />
-    <EmbeddedResource Remove="Unidades\Unidad3\**" />
-    <None Remove="Unidades\Unidad3\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Calculus">
-      <HintPath>..\..\Calculus.dll</HintPath>
+      <HintPath>..\..\..\Calculus.dll</HintPath>
     </Reference>
   </ItemGroup>
 

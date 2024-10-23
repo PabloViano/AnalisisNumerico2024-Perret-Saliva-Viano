@@ -30,9 +30,11 @@ namespace AnalsisNumerico.Unidades.U3
         private void InitializeComponent()
         {
             groupBoxEntrada = new GroupBox();
+            comboBoxGrado = new ComboBox();
+            lblGrado = new Label();
             txtBoxY = new TextBox();
-            richTextBox1 = new RichTextBox();
-            comboBox1 = new ComboBox();
+            panelCargaDePuntos = new RichTextBox();
+            comboBoxMetodo = new ComboBox();
             btnBorrarTodos = new Button();
             btnBorrarUltimo = new Button();
             btnCalcular = new Button();
@@ -46,6 +48,9 @@ namespace AnalsisNumerico.Unidades.U3
             label1 = new Label();
             label2 = new Label();
             groupBoxSalida = new GroupBox();
+            txtBoxEfectividad = new Label();
+            txtBoxCorrelacion = new Label();
+            txbFuncion = new TextBox();
             lblEfectividadAjuste = new Label();
             lblCorrelacion = new Label();
             lblFuncionObtenida = new Label();
@@ -60,9 +65,11 @@ namespace AnalsisNumerico.Unidades.U3
             // 
             // groupBoxEntrada
             // 
+            groupBoxEntrada.Controls.Add(comboBoxGrado);
+            groupBoxEntrada.Controls.Add(lblGrado);
             groupBoxEntrada.Controls.Add(txtBoxY);
-            groupBoxEntrada.Controls.Add(richTextBox1);
-            groupBoxEntrada.Controls.Add(comboBox1);
+            groupBoxEntrada.Controls.Add(panelCargaDePuntos);
+            groupBoxEntrada.Controls.Add(comboBoxMetodo);
             groupBoxEntrada.Controls.Add(btnBorrarTodos);
             groupBoxEntrada.Controls.Add(btnBorrarUltimo);
             groupBoxEntrada.Controls.Add(btnCalcular);
@@ -81,6 +88,24 @@ namespace AnalsisNumerico.Unidades.U3
             groupBoxEntrada.Text = "Datos de Entrada";
             groupBoxEntrada.Enter += groupBoxEntrada_Enter;
             // 
+            // comboBoxGrado
+            // 
+            comboBoxGrado.FormattingEnabled = true;
+            comboBoxGrado.Location = new Point(286, 69);
+            comboBoxGrado.Name = "comboBoxGrado";
+            comboBoxGrado.Size = new Size(89, 23);
+            comboBoxGrado.TabIndex = 15;
+            // 
+            // lblGrado
+            // 
+            lblGrado.AutoSize = true;
+            lblGrado.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblGrado.Location = new Point(216, 70);
+            lblGrado.Name = "lblGrado";
+            lblGrado.Size = new Size(45, 17);
+            lblGrado.TabIndex = 14;
+            lblGrado.Text = "Grado";
+            // 
             // txtBoxY
             // 
             txtBoxY.Location = new Point(192, 23);
@@ -88,23 +113,24 @@ namespace AnalsisNumerico.Unidades.U3
             txtBoxY.Size = new Size(50, 23);
             txtBoxY.TabIndex = 13;
             // 
-            // richTextBox1
+            // panelCargaDePuntos
             // 
-            richTextBox1.BackColor = SystemColors.Menu;
-            richTextBox1.BorderStyle = BorderStyle.None;
-            richTextBox1.Location = new Point(136, 161);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(135, 220);
-            richTextBox1.TabIndex = 12;
-            richTextBox1.Text = "";
+            panelCargaDePuntos.BackColor = SystemColors.Menu;
+            panelCargaDePuntos.BorderStyle = BorderStyle.None;
+            panelCargaDePuntos.Location = new Point(136, 161);
+            panelCargaDePuntos.Name = "panelCargaDePuntos";
+            panelCargaDePuntos.Size = new Size(135, 220);
+            panelCargaDePuntos.TabIndex = 12;
+            panelCargaDePuntos.Text = "";
             // 
-            // comboBox1
+            // comboBoxMetodo
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(136, 106);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(89, 23);
-            comboBox1.TabIndex = 11;
+            comboBoxMetodo.FormattingEnabled = true;
+            comboBoxMetodo.Location = new Point(136, 106);
+            comboBoxMetodo.Name = "comboBoxMetodo";
+            comboBoxMetodo.Size = new Size(135, 23);
+            comboBoxMetodo.TabIndex = 11;
+            comboBoxMetodo.SelectedIndexChanged += comboBoxMetodo_SelectedIndexChanged;
             // 
             // btnBorrarTodos
             // 
@@ -115,6 +141,7 @@ namespace AnalsisNumerico.Unidades.U3
             btnBorrarTodos.TabIndex = 10;
             btnBorrarTodos.Text = "BORRAR TODOS";
             btnBorrarTodos.UseVisualStyleBackColor = true;
+            btnBorrarTodos.Click += btnBorrarTodos_Click;
             // 
             // btnBorrarUltimo
             // 
@@ -125,18 +152,20 @@ namespace AnalsisNumerico.Unidades.U3
             btnBorrarUltimo.TabIndex = 9;
             btnBorrarUltimo.Text = "BORRAR ÚLTIMO";
             btnBorrarUltimo.UseVisualStyleBackColor = true;
+            btnBorrarUltimo.Click += btnBorrarUltimo_Click;
             // 
             // btnCalcular
             // 
             btnCalcular.BackColor = Color.LightSkyBlue;
             btnCalcular.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCalcular.ForeColor = Color.White;
-            btnCalcular.Location = new Point(286, 89);
+            btnCalcular.Location = new Point(286, 106);
             btnCalcular.Name = "btnCalcular";
-            btnCalcular.Size = new Size(96, 40);
+            btnCalcular.Size = new Size(110, 40);
             btnCalcular.TabIndex = 8;
             btnCalcular.Text = "CALCULAR";
             btnCalcular.UseVisualStyleBackColor = false;
+            btnCalcular.Click += btnCalcular_Click;
             // 
             // lblPuntosIngresados
             // 
@@ -153,12 +182,13 @@ namespace AnalsisNumerico.Unidades.U3
             btnCargar.BackColor = Color.LightSkyBlue;
             btnCargar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCargar.ForeColor = Color.White;
-            btnCargar.Location = new Point(286, 23);
+            btnCargar.Location = new Point(286, 21);
             btnCargar.Name = "btnCargar";
             btnCargar.Size = new Size(96, 30);
             btnCargar.TabIndex = 7;
             btnCargar.Text = "CARGAR";
             btnCargar.UseVisualStyleBackColor = false;
+            btnCargar.Click += btnCargar_Click;
             // 
             // lblMetodos
             // 
@@ -172,7 +202,7 @@ namespace AnalsisNumerico.Unidades.U3
             // 
             // txtBoxTolerancia
             // 
-            txtBoxTolerancia.Location = new Point(136, 67);
+            txtBoxTolerancia.Location = new Point(97, 66);
             txtBoxTolerancia.Name = "txtBoxTolerancia";
             txtBoxTolerancia.Size = new Size(89, 23);
             txtBoxTolerancia.TabIndex = 4;
@@ -181,7 +211,7 @@ namespace AnalsisNumerico.Unidades.U3
             // 
             lblTolerancia.AutoSize = true;
             lblTolerancia.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTolerancia.Location = new Point(59, 68);
+            lblTolerancia.Location = new Point(12, 68);
             lblTolerancia.Name = "lblTolerancia";
             lblTolerancia.Size = new Size(67, 17);
             lblTolerancia.TabIndex = 3;
@@ -230,6 +260,9 @@ namespace AnalsisNumerico.Unidades.U3
             // 
             // groupBoxSalida
             // 
+            groupBoxSalida.Controls.Add(txtBoxEfectividad);
+            groupBoxSalida.Controls.Add(txtBoxCorrelacion);
+            groupBoxSalida.Controls.Add(txbFuncion);
             groupBoxSalida.Controls.Add(lblEfectividadAjuste);
             groupBoxSalida.Controls.Add(lblCorrelacion);
             groupBoxSalida.Controls.Add(lblFuncionObtenida);
@@ -240,11 +273,38 @@ namespace AnalsisNumerico.Unidades.U3
             groupBoxSalida.TabStop = false;
             groupBoxSalida.Text = "Datos de Salida";
             // 
+            // txtBoxEfectividad
+            // 
+            txtBoxEfectividad.AutoSize = true;
+            txtBoxEfectividad.Location = new Point(143, 91);
+            txtBoxEfectividad.Name = "txtBoxEfectividad";
+            txtBoxEfectividad.Size = new Size(16, 15);
+            txtBoxEfectividad.TabIndex = 12;
+            txtBoxEfectividad.Text = "...";
+            // 
+            // txtBoxCorrelacion
+            // 
+            txtBoxCorrelacion.AutoSize = true;
+            txtBoxCorrelacion.Location = new Point(143, 70);
+            txtBoxCorrelacion.Name = "txtBoxCorrelacion";
+            txtBoxCorrelacion.Size = new Size(16, 15);
+            txtBoxCorrelacion.TabIndex = 6;
+            txtBoxCorrelacion.Text = "...";
+            // 
+            // txbFuncion
+            // 
+            txbFuncion.Location = new Point(143, 23);
+            txbFuncion.Multiline = true;
+            txbFuncion.Name = "txbFuncion";
+            txbFuncion.ReadOnly = true;
+            txbFuncion.Size = new Size(195, 41);
+            txbFuncion.TabIndex = 11;
+            // 
             // lblEfectividadAjuste
             // 
             lblEfectividadAjuste.AutoSize = true;
             lblEfectividadAjuste.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblEfectividadAjuste.Location = new Point(15, 75);
+            lblEfectividadAjuste.Location = new Point(15, 89);
             lblEfectividadAjuste.Name = "lblEfectividadAjuste";
             lblEfectividadAjuste.Size = new Size(110, 17);
             lblEfectividadAjuste.TabIndex = 2;
@@ -254,7 +314,7 @@ namespace AnalsisNumerico.Unidades.U3
             // 
             lblCorrelacion.AutoSize = true;
             lblCorrelacion.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCorrelacion.Location = new Point(15, 52);
+            lblCorrelacion.Location = new Point(15, 67);
             lblCorrelacion.Name = "lblCorrelacion";
             lblCorrelacion.Size = new Size(92, 17);
             lblCorrelacion.TabIndex = 1;
@@ -264,7 +324,7 @@ namespace AnalsisNumerico.Unidades.U3
             // 
             lblFuncionObtenida.AutoSize = true;
             lblFuncionObtenida.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblFuncionObtenida.Location = new Point(15, 28);
+            lblFuncionObtenida.Location = new Point(15, 27);
             lblFuncionObtenida.Name = "lblFuncionObtenida";
             lblFuncionObtenida.Size = new Size(110, 17);
             lblFuncionObtenida.TabIndex = 0;
@@ -343,8 +403,8 @@ namespace AnalsisNumerico.Unidades.U3
         private Button btnCargar;
         private Label label1;
         private Label label2;
-        private ComboBox comboBox1;
-        private RichTextBox richTextBox1;
+        private ComboBox comboBoxMetodo;
+        private RichTextBox panelCargaDePuntos;
         private TextBox txtBoxY;
         private GroupBox groupBoxSalida;
         private GroupBox groupBoxGrafico;
@@ -353,5 +413,10 @@ namespace AnalsisNumerico.Unidades.U3
         private Label lblFuncionObtenida;
         private Label lblGrafico;
         private PictureBox pictureBox1;
+        private TextBox txbFuncion;
+        private Label txtBoxEfectividad;
+        private Label txtBoxCorrelacion;
+        private Label lblGrado;
+        private ComboBox comboBoxGrado;
     }
 }

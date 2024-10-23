@@ -81,6 +81,7 @@
             button_menu_U3.TabIndex = 2;
             button_menu_U3.Text = "Unidad 3";
             button_menu_U3.UseVisualStyleBackColor = false;
+            button_menu_U3.Click += button_menu_U3_Click_1;
             // 
             // button_menu_U4
             // 
@@ -97,6 +98,7 @@
             button_menu_U4.TabIndex = 3;
             button_menu_U4.Text = "Unidad 4";
             button_menu_U4.UseVisualStyleBackColor = false;
+            button_menu_U4.Click += button_menu_U4_Click;
             // 
             // Form1
             // 
