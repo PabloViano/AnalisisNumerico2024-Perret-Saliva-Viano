@@ -44,7 +44,7 @@ namespace AnalsisNumerico.Unidades.Unidad4
             string funcion = txbFuncion.Text; // Supón que el TextBox se llama textBox1
 
             // Construye la URL para GeoGebra con la función ingresada
-            string urlGeoGebra = $"https://www.geogebra.org/graphing?command=Function[f(x)={funcion}]";
+            string urlGeoGebra = $"https://www.geogebra.org/graphing?command=f(x)={funcion}";
 
             // Navega a la URL generada
             webView21.CoreWebView2.Navigate(urlGeoGebra);
