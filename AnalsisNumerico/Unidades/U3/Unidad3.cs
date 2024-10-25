@@ -46,7 +46,7 @@ namespace AnalsisNumerico.Unidades.U3
                 CargarPunto(x, y);
 
                 Label puntoIngresado = new Label();
-                puntoIngresado.Text = $"({x} , {y})";
+                puntoIngresado.Text = $"({x},{y})";
                 puntoIngresado.ForeColor = Color.Blue;
                 int cantElementos = PuntosCargados.Count();
                 int puntoY = (cantElementos - 1) * 17;
@@ -56,6 +56,7 @@ namespace AnalsisNumerico.Unidades.U3
 
                 panelCargaDePuntos.Controls.Add(puntoIngresado);
                 panelCargaDePuntos.Show();
+                
 
                 txtBoxX.Clear();
                 txtBoxY.Clear();
@@ -171,14 +172,19 @@ namespace AnalsisNumerico.Unidades.U3
                 // Inicializa el WebView2 si no está ya inicializado
                 await webView21.EnsureCoreWebView2Async(null);
 
-                // Obtén la función del TextBox
-                string funcion = txbFuncion.Text; // Supón que el TextBox se llama textBox1
+                string funcion = txbFuncion.Text; // Supón que el TextBox se llama txbFuncion
                 funcion = Regex.Replace(funcion, @"y\s*=\s*", "");
-                funcion = funcion.Replace(",", ".");
+                funcion = funcion.Replace(",", "."); // Asegúrate de que ya esté en formato de punto
                 string funcionModificada = Regex.Replace(funcion, @"\+", "%2B");
 
-                // Construye la URL para GeoGebra con la función ingresada
-                string urlGeoGebra = $"https://www.geogebra.org/graphing?command=f(x)={funcionModificada}";
+
+                // Construir la cadena para los puntos
+                string puntosComando = string.Join("%3B", PuntosCargados.Select((p, index) =>
+                    $"A{index}%3D({p[0].ToString("G", System.Globalization.CultureInfo.InvariantCulture)},{p[1].ToString("G", System.Globalization.CultureInfo.InvariantCulture)})"
+                ));
+
+                // Construye la URL para GeoGebra con la función ingresada y los puntos
+                string urlGeoGebra = $"https://www.geogebra.org/graphing?command=f(x)={funcionModificada}%3B{puntosComando}";
 
                 // Navega a la URL generada
                 webView21.CoreWebView2.Navigate(urlGeoGebra);
