@@ -11,6 +11,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using AnalsisNumerico.Unidades.Unidad4;
 using Entidades.Unidad4;
+using System.Text.RegularExpressions;
 
 namespace AnalsisNumerico.Unidades.Unidad4
 {
@@ -42,9 +43,10 @@ namespace AnalsisNumerico.Unidades.Unidad4
 
             // Obtén la función del TextBox
             string funcion = txbFuncion.Text; // Supón que el TextBox se llama textBox1
+            string funcionModificada = Regex.Replace(funcion, @"\+", "%2B");
 
             // Construye la URL para GeoGebra con la función ingresada
-            string urlGeoGebra = $"https://www.geogebra.org/graphing?command=f(x)={funcion}";
+            string urlGeoGebra = $"https://www.geogebra.org/graphing?command=f(x)={funcionModificada}&P1=1,3&p2=1,4";
 
             // Navega a la URL generada
             webView21.CoreWebView2.Navigate(urlGeoGebra);
