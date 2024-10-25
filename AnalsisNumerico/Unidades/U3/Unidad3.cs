@@ -173,6 +173,8 @@ namespace AnalsisNumerico.Unidades.U3
 
                 // Obtén la función del TextBox
                 string funcion = txbFuncion.Text; // Supón que el TextBox se llama textBox1
+                funcion = Regex.Replace(funcion, @"y\s*=\s*", "");
+                funcion = funcion.Replace(",", ".");
                 string funcionModificada = Regex.Replace(funcion, @"\+", "%2B");
 
                 // Construye la URL para GeoGebra con la función ingresada
@@ -303,6 +305,11 @@ namespace AnalsisNumerico.Unidades.U3
         }
 
         private void comboBoxMetodo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void webView21_Click(object sender, EventArgs e)
         {
 
         }
