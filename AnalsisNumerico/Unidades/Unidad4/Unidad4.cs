@@ -46,7 +46,7 @@ namespace AnalsisNumerico.Unidades.Unidad4
             string funcionModificada = Regex.Replace(funcion, @"\+", "%2B");
 
             // Construye la URL para GeoGebra con la función ingresada
-            string urlGeoGebra = $"https://www.geogebra.org/graphing?command=f(x)={funcionModificada}&P1=1,3&p2=1,4";
+            string urlGeoGebra = $"https://www.geogebra.org/graphing?command=f(x)={funcionModificada}";
 
             // Navega a la URL generada
             webView21.CoreWebView2.Navigate(urlGeoGebra);
