@@ -65,5 +65,10 @@ namespace AnalsisNumerico.Unidades.Unidad4
             txbObservacion.Text = resultado._Error.ToString();
 
         }
+
+        private void groupBoxGrafico_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

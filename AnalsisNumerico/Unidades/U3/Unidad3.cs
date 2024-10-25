@@ -1,5 +1,6 @@
 ﻿using Analisis_Numerico;
 using Entidades.Unidad3;
+using Entidades.Unidad4;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -20,7 +22,7 @@ namespace AnalsisNumerico.Unidades.U3
         public Unidad3()
         {
             InitializeComponent();
-            SetPanelGrafica();
+            // SetPanelGrafica();
             CargarComboBoxMetodoUtilizar();
             CargarComboBoxGrado();
             btnBorrarTodos.Enabled = false;
@@ -92,7 +94,7 @@ namespace AnalsisNumerico.Unidades.U3
             btnBorrarUltimo.Enabled = false;
         }
 
-        private void btnCalcular_Click(object sender, EventArgs e)
+        private async void btnCalcular_Click(object sender, EventArgs e)
         {
             // Validaciones previas antes de realizar el cálculo
             if (this.PuntosCargados == null || this.PuntosCargados.Count == 0)
@@ -164,7 +166,20 @@ namespace AnalsisNumerico.Unidades.U3
                 comboBoxGrado.Text = resultado.Grado.ToString();
 
                 // Cargar la gráfica con los puntos y la función
-                graficador.Graficar(PuntosCargados, resultado.FuncionGraficador);
+                // graficador.Graficar(PuntosCargados, resultado.FuncionGraficador);
+
+                // Inicializa el WebView2 si no está ya inicializado
+                await webView21.EnsureCoreWebView2Async(null);
+
+                // Obtén la función del TextBox
+                string funcion = txbFuncion.Text; // Supón que el TextBox se llama textBox1
+                string funcionModificada = Regex.Replace(funcion, @"\+", "%2B");
+
+                // Construye la URL para GeoGebra con la función ingresada
+                string urlGeoGebra = $"https://www.geogebra.org/graphing?command=f(x)={funcionModificada}";
+
+                // Navega a la URL generada
+                webView21.CoreWebView2.Navigate(urlGeoGebra);
             }
             catch (Exception ex)
             {
@@ -172,13 +187,13 @@ namespace AnalsisNumerico.Unidades.U3
             }
         }
 
-        public void SetPanelGrafica()
-        {
-            groupBoxGrafico.Controls.Clear();
-            this.graficador = new Graficador();
-            groupBoxGrafico.Controls.Add(graficador);
-            graficador.Dock = DockStyle.Fill;
-        }
+        //public void SetPanelGrafica()
+        //{
+        //    groupBoxGrafico.Controls.Clear();
+        //    this.graficador = new Graficador();
+        //    groupBoxGrafico.Controls.Add(graficador);
+        //    graficador.Dock = DockStyle.Fill;
+        //}
 
         private void CargarPunto(double x, double y)
         {

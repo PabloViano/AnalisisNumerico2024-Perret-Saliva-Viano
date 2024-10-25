@@ -57,10 +57,12 @@ namespace AnalsisNumerico.Unidades.U3
             groupBoxGrafico = new GroupBox();
             lblGrafico = new Label();
             pictureBox1 = new PictureBox();
+            webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             groupBoxEntrada.SuspendLayout();
             groupBoxSalida.SuspendLayout();
             groupBoxGrafico.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             SuspendLayout();
             // 
             // groupBoxEntrada
@@ -82,7 +84,7 @@ namespace AnalsisNumerico.Unidades.U3
             groupBoxEntrada.Controls.Add(lblPuntos);
             groupBoxEntrada.Location = new Point(12, 61);
             groupBoxEntrada.Name = "groupBoxEntrada";
-            groupBoxEntrada.Size = new Size(403, 405);
+            groupBoxEntrada.Size = new Size(403, 532);
             groupBoxEntrada.TabIndex = 0;
             groupBoxEntrada.TabStop = false;
             groupBoxEntrada.Text = "Datos de Entrada";
@@ -252,7 +254,7 @@ namespace AnalsisNumerico.Unidades.U3
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(708, 478);
+            label2.Location = new Point(919, 572);
             label2.Name = "label2";
             label2.Size = new Size(200, 21);
             label2.TabIndex = 2;
@@ -332,10 +334,11 @@ namespace AnalsisNumerico.Unidades.U3
             // 
             // groupBoxGrafico
             // 
+            groupBoxGrafico.Controls.Add(webView21);
             groupBoxGrafico.Controls.Add(lblGrafico);
             groupBoxGrafico.Location = new Point(431, 179);
             groupBoxGrafico.Name = "groupBoxGrafico";
-            groupBoxGrafico.Size = new Size(477, 286);
+            groupBoxGrafico.Size = new Size(688, 390);
             groupBoxGrafico.TabIndex = 4;
             groupBoxGrafico.TabStop = false;
             // 
@@ -361,12 +364,23 @@ namespace AnalsisNumerico.Unidades.U3
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // webView21
+            // 
+            webView21.AllowExternalDrop = true;
+            webView21.CreationProperties = null;
+            webView21.DefaultBackgroundColor = Color.White;
+            webView21.Location = new Point(8, 47);
+            webView21.Name = "webView21";
+            webView21.Size = new Size(674, 337);
+            webView21.TabIndex = 6;
+            webView21.ZoomFactor = 1D;
+            // 
             // Unidad3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lavender;
-            ClientSize = new Size(920, 508);
+            ClientSize = new Size(1131, 605);
             Controls.Add(pictureBox1);
             Controls.Add(groupBoxGrafico);
             Controls.Add(groupBoxSalida);
@@ -384,6 +398,7 @@ namespace AnalsisNumerico.Unidades.U3
             groupBoxGrafico.ResumeLayout(false);
             groupBoxGrafico.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -418,5 +433,6 @@ namespace AnalsisNumerico.Unidades.U3
         private Label txtBoxCorrelacion;
         private Label lblGrado;
         private ComboBox comboBoxGrado;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
     }
 }

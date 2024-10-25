@@ -65,9 +65,9 @@
             label1.BorderStyle = BorderStyle.Fixed3D;
             label1.FlatStyle = FlatStyle.Popup;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(251, 16);
+            label1.Location = new Point(220, 12);
             label1.Name = "label1";
-            label1.Size = new Size(639, 48);
+            label1.Size = new Size(510, 39);
             label1.TabIndex = 2;
             label1.Text = "UNIDAD 4 - INTEGRACIÓN NUMÉRICA";
             label1.Click += label1_Click;
@@ -76,9 +76,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(825, 633);
+            label2.Location = new Point(851, 549);
             label2.Name = "label2";
-            label2.Size = new Size(257, 28);
+            label2.Size = new Size(200, 21);
             label2.TabIndex = 3;
             label2.Text = "SALIVA - PERRET - VIANO";
             // 
@@ -96,23 +96,25 @@
             groupBox1.Controls.Add(lblXi);
             groupBox1.Controls.Add(lblFuncion);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(24, 96);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
+            groupBox1.Location = new Point(21, 72);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(471, 259);
+            groupBox1.Size = new Size(412, 194);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos de Salida";
             // 
             // button1
             // 
-            button1.Location = new Point(319, 209);
+            button1.BackColor = Color.LightSkyBlue;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(292, 141);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(146, 28);
+            button1.Size = new Size(114, 39);
             button1.TabIndex = 11;
-            button1.Text = "Calcular";
-            button1.UseVisualStyleBackColor = true;
+            button1.Text = "CALCULAR";
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // ComboBoxMetodo
@@ -120,47 +122,52 @@
             ComboBoxMetodo.DisplayMember = "dfsd";
             ComboBoxMetodo.FormattingEnabled = true;
             ComboBoxMetodo.Items.AddRange(new object[] { "Trapezoidal Simple", "Trapezoidal Múltiple", "Simpson 1/3 Simple", "Simpson 1/3 Múltiple", "Simpson 3/8" });
-            ComboBoxMetodo.Location = new Point(105, 209);
+            ComboBoxMetodo.Location = new Point(92, 157);
+            ComboBoxMetodo.Margin = new Padding(3, 2, 3, 2);
             ComboBoxMetodo.Name = "ComboBoxMetodo";
-            ComboBoxMetodo.Size = new Size(185, 28);
+            ComboBoxMetodo.Size = new Size(162, 23);
             ComboBoxMetodo.TabIndex = 10;
             ComboBoxMetodo.ValueMember = "fdsfds";
             // 
             // txbCantidadSubintervales
             // 
-            txbCantidadSubintervales.Location = new Point(227, 153);
+            txbCantidadSubintervales.Location = new Point(199, 115);
+            txbCantidadSubintervales.Margin = new Padding(3, 2, 3, 2);
             txbCantidadSubintervales.Name = "txbCantidadSubintervales";
-            txbCantidadSubintervales.Size = new Size(85, 27);
+            txbCantidadSubintervales.Size = new Size(75, 23);
             txbCantidadSubintervales.TabIndex = 8;
             // 
             // txbXd
             // 
-            txbXd.Location = new Point(239, 96);
+            txbXd.Location = new Point(209, 72);
+            txbXd.Margin = new Padding(3, 2, 3, 2);
             txbXd.Name = "txbXd";
-            txbXd.Size = new Size(74, 27);
+            txbXd.Size = new Size(65, 23);
             txbXd.TabIndex = 7;
             // 
             // txbXi
             // 
-            txbXi.Location = new Point(83, 96);
+            txbXi.Location = new Point(73, 72);
+            txbXi.Margin = new Padding(3, 2, 3, 2);
             txbXi.Name = "txbXi";
-            txbXi.Size = new Size(62, 27);
+            txbXi.Size = new Size(55, 23);
             txbXi.TabIndex = 6;
             // 
             // txbFuncion
             // 
-            txbFuncion.Location = new Point(83, 45);
+            txbFuncion.Location = new Point(73, 34);
+            txbFuncion.Margin = new Padding(3, 2, 3, 2);
             txbFuncion.Name = "txbFuncion";
-            txbFuncion.Size = new Size(229, 27);
+            txbFuncion.Size = new Size(201, 23);
             txbFuncion.TabIndex = 5;
             // 
             // lblMetodo
             // 
             lblMetodo.AutoSize = true;
             lblMetodo.Font = new Font("Segoe UI", 9.75F);
-            lblMetodo.Location = new Point(18, 213);
+            lblMetodo.Location = new Point(16, 160);
             lblMetodo.Name = "lblMetodo";
-            lblMetodo.Size = new Size(70, 23);
+            lblMetodo.Size = new Size(55, 17);
             lblMetodo.TabIndex = 4;
             lblMetodo.Text = "Método";
             // 
@@ -168,9 +175,9 @@
             // 
             lblCantidadIntervalos.AutoSize = true;
             lblCantidadIntervalos.Font = new Font("Segoe UI", 9.75F);
-            lblCantidadIntervalos.Location = new Point(18, 157);
+            lblCantidadIntervalos.Location = new Point(16, 118);
             lblCantidadIntervalos.Name = "lblCantidadIntervalos";
-            lblCantidadIntervalos.Size = new Size(235, 23);
+            lblCantidadIntervalos.Size = new Size(180, 17);
             lblCantidadIntervalos.TabIndex = 3;
             lblCantidadIntervalos.Text = "Canditad de Subintervalos (n)";
             // 
@@ -178,9 +185,9 @@
             // 
             lblXd.AutoSize = true;
             lblXd.Font = new Font("Segoe UI", 9.75F);
-            lblXd.Location = new Point(197, 104);
+            lblXd.Location = new Point(172, 78);
             lblXd.Name = "lblXd";
-            lblXd.Size = new Size(30, 23);
+            lblXd.Size = new Size(24, 17);
             lblXd.TabIndex = 2;
             lblXd.Text = "Xd";
             // 
@@ -188,9 +195,9 @@
             // 
             lblXi.AutoSize = true;
             lblXi.Font = new Font("Segoe UI", 9.75F);
-            lblXi.Location = new Point(31, 104);
+            lblXi.Location = new Point(27, 78);
             lblXi.Name = "lblXi";
-            lblXi.Size = new Size(24, 23);
+            lblXi.Size = new Size(19, 17);
             lblXi.TabIndex = 1;
             lblXi.Text = "Xi";
             // 
@@ -198,9 +205,9 @@
             // 
             lblFuncion.AutoSize = true;
             lblFuncion.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblFuncion.Location = new Point(31, 47);
+            lblFuncion.Location = new Point(27, 35);
             lblFuncion.Name = "lblFuncion";
-            lblFuncion.Size = new Size(36, 23);
+            lblFuncion.Size = new Size(28, 17);
             lblFuncion.TabIndex = 0;
             lblFuncion.Text = "F(x)";
             // 
@@ -210,11 +217,9 @@
             groupBox2.Controls.Add(lblObservación);
             groupBox2.Controls.Add(txbArea);
             groupBox2.Controls.Add(lblArea);
-            groupBox2.Location = new Point(23, 376);
-            groupBox2.Margin = new Padding(3, 4, 3, 4);
+            groupBox2.Location = new Point(20, 282);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(3, 4, 3, 4);
-            groupBox2.Size = new Size(472, 253);
+            groupBox2.Size = new Size(413, 259);
             groupBox2.TabIndex = 5;
             groupBox2.TabStop = false;
             groupBox2.Text = "Resultado";
@@ -222,47 +227,48 @@
             // 
             // txbObservacion
             // 
-            txbObservacion.Location = new Point(136, 97);
+            txbObservacion.Location = new Point(119, 73);
+            txbObservacion.Margin = new Padding(3, 2, 3, 2);
             txbObservacion.Multiline = true;
             txbObservacion.Name = "txbObservacion";
             txbObservacion.ReadOnly = true;
-            txbObservacion.Size = new Size(252, 137);
+            txbObservacion.Size = new Size(221, 104);
             txbObservacion.TabIndex = 8;
             // 
             // lblObservación
             // 
             lblObservación.AutoSize = true;
             lblObservación.Font = new Font("Segoe UI", 9.75F);
-            lblObservación.Location = new Point(32, 97);
+            lblObservación.Location = new Point(28, 73);
             lblObservación.Name = "lblObservación";
-            lblObservación.Size = new Size(104, 23);
+            lblObservación.Size = new Size(81, 17);
             lblObservación.TabIndex = 7;
             lblObservación.Text = "Observación";
             // 
             // txbArea
             // 
-            txbArea.Location = new Point(136, 44);
+            txbArea.Location = new Point(119, 33);
+            txbArea.Margin = new Padding(3, 2, 3, 2);
             txbArea.Name = "txbArea";
-            txbArea.Size = new Size(252, 27);
+            txbArea.Size = new Size(221, 23);
             txbArea.TabIndex = 6;
             // 
             // lblArea
             // 
             lblArea.AutoSize = true;
             lblArea.Font = new Font("Segoe UI", 9.75F);
-            lblArea.Location = new Point(79, 45);
+            lblArea.Location = new Point(69, 34);
             lblArea.Name = "lblArea";
-            lblArea.Size = new Size(45, 23);
+            lblArea.Size = new Size(35, 17);
             lblArea.TabIndex = 1;
             lblArea.Text = "Área";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.LogoUcse;
-            pictureBox1.Location = new Point(991, 16);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(867, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(63, 68);
+            pictureBox1.Size = new Size(55, 51);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
@@ -271,22 +277,22 @@
             // 
             groupBoxGrafico.Controls.Add(webView21);
             groupBoxGrafico.Controls.Add(label6);
-            groupBoxGrafico.Location = new Point(529, 96);
-            groupBoxGrafico.Margin = new Padding(3, 4, 3, 4);
+            groupBoxGrafico.Location = new Point(463, 72);
             groupBoxGrafico.Name = "groupBoxGrafico";
-            groupBoxGrafico.Padding = new Padding(3, 4, 3, 4);
-            groupBoxGrafico.Size = new Size(525, 533);
+            groupBoxGrafico.Size = new Size(588, 474);
             groupBoxGrafico.TabIndex = 7;
             groupBoxGrafico.TabStop = false;
+            groupBoxGrafico.Enter += groupBoxGrafico_Enter;
             // 
             // webView21
             // 
             webView21.AllowExternalDrop = true;
             webView21.CreationProperties = null;
             webView21.DefaultBackgroundColor = Color.White;
-            webView21.Location = new Point(17, 56);
+            webView21.Location = new Point(15, 42);
+            webView21.Margin = new Padding(3, 2, 3, 2);
             webView21.Name = "webView21";
-            webView21.Size = new Size(524, 470);
+            webView21.Size = new Size(567, 427);
             webView21.TabIndex = 7;
             webView21.ZoomFactor = 1D;
             webView21.Click += webView21_Click;
@@ -296,25 +302,24 @@
             label6.AutoSize = true;
             label6.FlatStyle = FlatStyle.Popup;
             label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label6.Location = new Point(17, 25);
+            label6.Location = new Point(15, 19);
             label6.Name = "label6";
-            label6.Size = new Size(95, 28);
+            label6.Size = new Size(77, 21);
             label6.TabIndex = 6;
             label6.Text = "GRÁFICO";
             // 
             // Unidad4
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1082, 673);
+            BackColor = Color.Lavender;
+            ClientSize = new Size(1063, 579);
             Controls.Add(groupBoxGrafico);
             Controls.Add(pictureBox1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Unidad4";
             Text = "Unidad4";
             groupBox1.ResumeLayout(false);
