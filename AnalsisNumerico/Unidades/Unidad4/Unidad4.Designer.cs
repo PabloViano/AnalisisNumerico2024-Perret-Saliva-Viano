@@ -108,7 +108,7 @@
             button1.BackColor = Color.LightSkyBlue;
             button1.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(287, 141);
+            button1.Location = new Point(287, 131);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
             button1.Size = new Size(119, 48);
@@ -122,19 +122,20 @@
             ComboBoxMetodo.DisplayMember = "dfsd";
             ComboBoxMetodo.FormattingEnabled = true;
             ComboBoxMetodo.Items.AddRange(new object[] { "Trapezoidal Simple", "Trapezoidal Múltiple", "Simpson 1/3 Simple", "Simpson 1/3 Múltiple", "Simpson 3/8" });
-            ComboBoxMetodo.Location = new Point(92, 157);
+            ComboBoxMetodo.Location = new Point(73, 113);
             ComboBoxMetodo.Margin = new Padding(3, 2, 3, 2);
             ComboBoxMetodo.Name = "ComboBoxMetodo";
             ComboBoxMetodo.Size = new Size(162, 23);
             ComboBoxMetodo.TabIndex = 10;
             ComboBoxMetodo.ValueMember = "fdsfds";
+            ComboBoxMetodo.SelectedIndexChanged += ComboBoxMetodo_SelectedIndexChanged;
             // 
             // txbCantidadSubintervales
             // 
-            txbCantidadSubintervales.Location = new Point(199, 115);
+            txbCantidadSubintervales.Location = new Point(209, 156);
             txbCantidadSubintervales.Margin = new Padding(3, 2, 3, 2);
             txbCantidadSubintervales.Name = "txbCantidadSubintervales";
-            txbCantidadSubintervales.Size = new Size(75, 23);
+            txbCantidadSubintervales.Size = new Size(60, 23);
             txbCantidadSubintervales.TabIndex = 8;
             // 
             // txbXd
@@ -165,7 +166,7 @@
             // 
             lblMetodo.AutoSize = true;
             lblMetodo.Font = new Font("Segoe UI", 9.75F);
-            lblMetodo.Location = new Point(16, 160);
+            lblMetodo.Location = new Point(16, 119);
             lblMetodo.Name = "lblMetodo";
             lblMetodo.Size = new Size(55, 17);
             lblMetodo.TabIndex = 4;
@@ -175,11 +176,11 @@
             // 
             lblCantidadIntervalos.AutoSize = true;
             lblCantidadIntervalos.Font = new Font("Segoe UI", 9.75F);
-            lblCantidadIntervalos.Location = new Point(16, 118);
+            lblCantidadIntervalos.Location = new Point(16, 157);
             lblCantidadIntervalos.Name = "lblCantidadIntervalos";
             lblCantidadIntervalos.Size = new Size(180, 17);
             lblCantidadIntervalos.TabIndex = 3;
-            lblCantidadIntervalos.Text = "Canditad de Subintervalos (n)";
+            lblCantidadIntervalos.Text = "Cantidad de Subintervalos (n)";
             // 
             // lblXd
             // 

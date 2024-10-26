@@ -17,9 +17,25 @@ namespace AnalsisNumerico.Unidades.Unidad4
 {
     public partial class Unidad4 : Form
     {
+        private object or;
+
         public Unidad4()
         {
             InitializeComponent();
+        }
+
+        private void ComboBoxMetodo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ComboBoxMetodo.Text == "Trapezoidal Múltiple" || ComboBoxMetodo.Text == "Simpson 1/3 Múltiple" || ComboBoxMetodo.Text == "Simpson 3/8")
+            {
+                lblCantidadIntervalos.Visible = true;
+                txbCantidadSubintervales.Visible = true;
+            }
+            else
+            {
+                lblCantidadIntervalos.Visible = false;
+                txbCantidadSubintervales.Visible = false;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -50,15 +66,20 @@ namespace AnalsisNumerico.Unidades.Unidad4
 
             // Navega a la URL generada
             webView21.CoreWebView2.Navigate(urlGeoGebra);
+            
+            U4Entrada datosEntrada = new U4Entrada();
+            datosEntrada.Funcion = funcion;
+            datosEntrada.PuntoA = double.Parse(txbXi.Text);
+            datosEntrada.PuntoB = double.Parse(txbXd.Text);
+            datosEntrada.Metodo = ComboBoxMetodo.SelectedIndex;
 
-            U4Entrada datosEntrada = new U4Entrada()
+            if (datosEntrada.Metodo == 0 || datosEntrada.Metodo == 2)
             {
-                Funcion = funcion,
-                PuntoA = double.Parse(txbXi.Text),
-                PuntoB = double.Parse(txbXd.Text),
-                CantidadSubintervalos = int.Parse(txbCantidadSubintervales.Text),
-                Metodo = ComboBoxMetodo.SelectedIndex
-            };
+                datosEntrada.CantidadSubintervalos = 1;
+            } else
+            {
+                datosEntrada.CantidadSubintervalos = int.Parse(txbCantidadSubintervales.Text);
+            }
             U4Salida resultado = Procedimientos.Resolucion(datosEntrada);
 
             txbArea.Text = resultado.Resultado.ToString();
