@@ -119,6 +119,7 @@ namespace AnalsisNumerico.Unidades.U3
             // 
             panelCargaDePuntos.BackColor = SystemColors.Menu;
             panelCargaDePuntos.BorderStyle = BorderStyle.None;
+            panelCargaDePuntos.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panelCargaDePuntos.Location = new Point(136, 161);
             panelCargaDePuntos.Name = "panelCargaDePuntos";
             panelCargaDePuntos.Size = new Size(135, 341);
@@ -243,7 +244,7 @@ namespace AnalsisNumerico.Unidades.U3
             label1.BorderStyle = BorderStyle.Fixed3D;
             label1.FlatStyle = FlatStyle.Popup;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(374, 9);
+            label1.Location = new Point(331, 9);
             label1.Name = "label1";
             label1.Size = new Size(422, 39);
             label1.TabIndex = 1;
@@ -254,7 +255,7 @@ namespace AnalsisNumerico.Unidades.U3
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(919, 572);
+            label2.Location = new Point(1253, 704);
             label2.Name = "label2";
             label2.Size = new Size(200, 21);
             label2.TabIndex = 2;
@@ -270,7 +271,7 @@ namespace AnalsisNumerico.Unidades.U3
             groupBoxSalida.Controls.Add(lblFuncionObtenida);
             groupBoxSalida.Location = new Point(430, 61);
             groupBoxSalida.Name = "groupBoxSalida";
-            groupBoxSalida.Size = new Size(683, 112);
+            groupBoxSalida.Size = new Size(847, 112);
             groupBoxSalida.TabIndex = 3;
             groupBoxSalida.TabStop = false;
             groupBoxSalida.Text = "Datos de Salida";
@@ -344,7 +345,7 @@ namespace AnalsisNumerico.Unidades.U3
             groupBoxGrafico.Controls.Add(lblGrafico);
             groupBoxGrafico.Location = new Point(431, 179);
             groupBoxGrafico.Name = "groupBoxGrafico";
-            groupBoxGrafico.Size = new Size(688, 390);
+            groupBoxGrafico.Size = new Size(846, 522);
             groupBoxGrafico.TabIndex = 4;
             groupBoxGrafico.TabStop = false;
             // 
@@ -355,7 +356,7 @@ namespace AnalsisNumerico.Unidades.U3
             webView21.DefaultBackgroundColor = Color.White;
             webView21.Location = new Point(8, 47);
             webView21.Name = "webView21";
-            webView21.Size = new Size(674, 337);
+            webView21.Size = new Size(832, 469);
             webView21.TabIndex = 6;
             webView21.ZoomFactor = 1D;
             webView21.Click += webView21_Click;
@@ -374,7 +375,7 @@ namespace AnalsisNumerico.Unidades.U3
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.LogoUcse;
-            pictureBox1.Location = new Point(1054, 9);
+            pictureBox1.Location = new Point(1224, 9);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(53, 54);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -387,7 +388,7 @@ namespace AnalsisNumerico.Unidades.U3
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lavender;
-            ClientSize = new Size(1131, 605);
+            ClientSize = new Size(1284, 734);
             Controls.Add(pictureBox1);
             Controls.Add(groupBoxGrafico);
             Controls.Add(groupBoxSalida);

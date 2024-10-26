@@ -26,7 +26,7 @@ namespace AnalsisNumerico.Unidades.Unidad4
 
         private void ComboBoxMetodo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ComboBoxMetodo.Text == "Trapezoidal Múltiple" || ComboBoxMetodo.Text == "Simpson 1/3 Múltiple" || ComboBoxMetodo.Text == "Simpson 3/8")
+            if (ComboBoxMetodo.Text == "Trapezoidal Múltiple" || ComboBoxMetodo.Text == "Simpson 1/3 Múltiple")
             {
                 lblCantidadIntervalos.Visible = true;
                 txbCantidadSubintervales.Visible = true;
@@ -73,7 +73,7 @@ namespace AnalsisNumerico.Unidades.Unidad4
             datosEntrada.PuntoB = double.Parse(txbXd.Text);
             datosEntrada.Metodo = ComboBoxMetodo.SelectedIndex;
 
-            if (datosEntrada.Metodo == 0 || datosEntrada.Metodo == 2)
+            if (datosEntrada.Metodo == 0 || datosEntrada.Metodo == 2 || datosEntrada.Metodo == 4)
             {
                 datosEntrada.CantidadSubintervalos = 1;
             } else
@@ -82,15 +82,15 @@ namespace AnalsisNumerico.Unidades.Unidad4
             }
             U4Salida resultado = Procedimientos.Resolucion(datosEntrada);
 
-            txbArea.Text = resultado.Resultado.ToString();
+            txbArea.Text = resultado.Area.ToString();
             txbObservacion.Text = "Área calculada con éxito.";
             txbObservacion.ForeColor = Color.Green; // Color para mensaje de éxito
 
             // Verificar si hay un error
-            if (resultado._Error == true)
+            if (!string.IsNullOrEmpty(resultado.Error))
             {
                 // Si hay un error, cambiar el mensaje y el color
-                txbObservacion.Text = resultado._MsjError;
+                txbObservacion.Text = resultado.Error;
                 txbObservacion.ForeColor = Color.Red; // Color para mensaje de error
             }
         }

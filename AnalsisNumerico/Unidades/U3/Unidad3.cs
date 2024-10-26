@@ -46,14 +46,14 @@ namespace AnalsisNumerico.Unidades.U3
                 CargarPunto(x, y);
 
                 Label puntoIngresado = new Label();
-                puntoIngresado.Text = $"({x}, {y})";
+                puntoIngresado.Text = $"({x} , {y})";
                 puntoIngresado.ForeColor = Color.Blue;
 
                 // Cambia la fuente a una más moderna y de tamaño adecuado.
-                puntoIngresado.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+                puntoIngresado.Font = new Font("Segoe UI", 12, FontStyle.Regular);
 
-                // Ajusta el tamaño del Label para que se adapte mejor al texto.
-                puntoIngresado.Size = new Size(70, 20); // Ajuste de tamaño compacto
+                // Ajusta automáticamente el tamaño del Label al contenido
+                puntoIngresado.AutoSize = true;
 
                 // Elimina el fondo y el borde para un estilo más limpio.
                 puntoIngresado.BackColor = Color.Transparent;
@@ -114,7 +114,7 @@ namespace AnalsisNumerico.Unidades.U3
             }
 
             double tolerancia;
-            int grado = 1; // Inicializamos grado en 1 para regresión lineal, aunque no será utilizado.
+            int grado;
 
             // Validar la entrada de la tolerancia
             if (!double.TryParse(txtBoxTolerancia.Text, out tolerancia))
@@ -131,6 +131,9 @@ namespace AnalsisNumerico.Unidades.U3
                     MessageBox.Show("Debe seleccionar un grado válido (entre 1 y 10) para la regresión polinomial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+            } else
+            {
+                grado = 1;
             }
 
             // Crear objeto U3Entrada con los puntos cargados, tolerancia y grado
@@ -177,10 +180,6 @@ namespace AnalsisNumerico.Unidades.U3
                 {
                     txtBoxEfectividad.Text = "El ajuste es aceptable.";
                 }
-                comboBoxGrado.Text = resultado.Grado.ToString();
-
-                // Cargar la gráfica con los puntos y la función
-                // graficador.Graficar(PuntosCargados, resultado.FuncionGraficador);
 
                 // Inicializa el WebView2 si no está ya inicializado
                 await webView21.EnsureCoreWebView2Async(null);

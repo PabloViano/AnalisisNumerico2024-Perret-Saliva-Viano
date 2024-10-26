@@ -65,7 +65,7 @@
             label1.BorderStyle = BorderStyle.Fixed3D;
             label1.FlatStyle = FlatStyle.Popup;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(296, 9);
+            label1.Location = new Point(345, 9);
             label1.Name = "label1";
             label1.Size = new Size(510, 39);
             label1.TabIndex = 2;
@@ -76,7 +76,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(851, 549);
+            label2.Location = new Point(1331, 639);
             label2.Name = "label2";
             label2.Size = new Size(200, 21);
             label2.TabIndex = 3;
@@ -121,7 +121,7 @@
             // 
             ComboBoxMetodo.DisplayMember = "dfsd";
             ComboBoxMetodo.FormattingEnabled = true;
-            ComboBoxMetodo.Items.AddRange(new object[] { "Trapezoidal Simple", "Trapezoidal Múltiple", "Simpson 1/3 Simple", "Simpson 1/3 Múltiple", "Simpson 3/8" });
+            ComboBoxMetodo.Items.AddRange(new object[] { "Trapezoidal Simple", "Trapezoidal Múltiple", "Simpson 1/3 Simple", "Simpson 1/3 Múltiple", "Simpson 3/8"});
             ComboBoxMetodo.Location = new Point(73, 113);
             ComboBoxMetodo.Margin = new Padding(3, 2, 3, 2);
             ComboBoxMetodo.Name = "ComboBoxMetodo";
@@ -220,7 +220,7 @@
             groupBox2.Controls.Add(lblArea);
             groupBox2.Location = new Point(20, 282);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(413, 259);
+            groupBox2.Size = new Size(413, 340);
             groupBox2.TabIndex = 5;
             groupBox2.TabStop = false;
             groupBox2.Text = "Resultado";
@@ -271,7 +271,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.LogoUcse;
-            pictureBox1.Location = new Point(990, 15);
+            pictureBox1.Location = new Point(1470, 15);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(55, 51);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -284,7 +284,7 @@
             groupBoxGrafico.Controls.Add(label6);
             groupBoxGrafico.Location = new Point(463, 72);
             groupBoxGrafico.Name = "groupBoxGrafico";
-            groupBoxGrafico.Size = new Size(588, 474);
+            groupBoxGrafico.Size = new Size(1068, 550);
             groupBoxGrafico.TabIndex = 7;
             groupBoxGrafico.TabStop = false;
             groupBoxGrafico.Enter += groupBoxGrafico_Enter;
@@ -297,7 +297,7 @@
             webView21.Location = new Point(15, 42);
             webView21.Margin = new Padding(3, 2, 3, 2);
             webView21.Name = "webView21";
-            webView21.Size = new Size(567, 427);
+            webView21.Size = new Size(1047, 503);
             webView21.TabIndex = 7;
             webView21.ZoomFactor = 1D;
             webView21.Click += webView21_Click;
@@ -318,7 +318,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lavender;
-            ClientSize = new Size(1063, 579);
+            ClientSize = new Size(1775, 843);
             Controls.Add(groupBoxGrafico);
             Controls.Add(pictureBox1);
             Controls.Add(groupBox2);
