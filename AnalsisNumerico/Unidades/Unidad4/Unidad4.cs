@@ -62,8 +62,16 @@ namespace AnalsisNumerico.Unidades.Unidad4
             U4Salida resultado = Procedimientos.Resolucion(datosEntrada);
 
             txbArea.Text = resultado.Resultado.ToString();
-            txbObservacion.Text = resultado._Error.ToString();
+            txbObservacion.Text = "Área calculada con éxito.";
+            txbObservacion.ForeColor = Color.Green; // Color para mensaje de éxito
 
+            // Verificar si hay un error
+            if (resultado._Error == true)
+            {
+                // Si hay un error, cambiar el mensaje y el color
+                txbObservacion.Text = resultado._MsjError;
+                txbObservacion.ForeColor = Color.Red; // Color para mensaje de error
+            }
         }
 
         private void groupBoxGrafico_Enter(object sender, EventArgs e)

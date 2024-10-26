@@ -65,7 +65,7 @@
             label1.BorderStyle = BorderStyle.Fixed3D;
             label1.FlatStyle = FlatStyle.Popup;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(220, 12);
+            label1.Location = new Point(296, 9);
             label1.Name = "label1";
             label1.Size = new Size(510, 39);
             label1.TabIndex = 2;
@@ -106,12 +106,12 @@
             // button1
             // 
             button1.BackColor = Color.LightSkyBlue;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(292, 141);
+            button1.Location = new Point(287, 141);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(114, 39);
+            button1.Size = new Size(119, 48);
             button1.TabIndex = 11;
             button1.Text = "CALCULAR";
             button1.UseVisualStyleBackColor = false;
@@ -195,7 +195,7 @@
             // 
             lblXi.AutoSize = true;
             lblXi.Font = new Font("Segoe UI", 9.75F);
-            lblXi.Location = new Point(27, 78);
+            lblXi.Location = new Point(36, 78);
             lblXi.Name = "lblXi";
             lblXi.Size = new Size(19, 17);
             lblXi.TabIndex = 1;
@@ -205,7 +205,7 @@
             // 
             lblFuncion.AutoSize = true;
             lblFuncion.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblFuncion.Location = new Point(27, 35);
+            lblFuncion.Location = new Point(27, 34);
             lblFuncion.Name = "lblFuncion";
             lblFuncion.Size = new Size(28, 17);
             lblFuncion.TabIndex = 0;
@@ -227,19 +227,23 @@
             // 
             // txbObservacion
             // 
-            txbObservacion.Location = new Point(119, 73);
+            txbObservacion.BackColor = Color.Lavender;
+            txbObservacion.BorderStyle = BorderStyle.None;
+            txbObservacion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            txbObservacion.ForeColor = Color.LightGreen;
+            txbObservacion.Location = new Point(119, 85);
             txbObservacion.Margin = new Padding(3, 2, 3, 2);
             txbObservacion.Multiline = true;
             txbObservacion.Name = "txbObservacion";
             txbObservacion.ReadOnly = true;
-            txbObservacion.Size = new Size(221, 104);
+            txbObservacion.Size = new Size(221, 134);
             txbObservacion.TabIndex = 8;
             // 
             // lblObservación
             // 
             lblObservación.AutoSize = true;
             lblObservación.Font = new Font("Segoe UI", 9.75F);
-            lblObservación.Location = new Point(28, 73);
+            lblObservación.Location = new Point(28, 85);
             lblObservación.Name = "lblObservación";
             lblObservación.Size = new Size(81, 17);
             lblObservación.TabIndex = 7;
@@ -266,7 +270,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.LogoUcse;
-            pictureBox1.Location = new Point(867, 12);
+            pictureBox1.Location = new Point(990, 15);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(55, 51);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;

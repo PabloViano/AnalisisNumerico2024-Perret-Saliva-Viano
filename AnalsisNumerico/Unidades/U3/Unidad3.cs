@@ -46,17 +46,26 @@ namespace AnalsisNumerico.Unidades.U3
                 CargarPunto(x, y);
 
                 Label puntoIngresado = new Label();
-                puntoIngresado.Text = $"({x},{y})";
+                puntoIngresado.Text = $"({x}, {y})";
                 puntoIngresado.ForeColor = Color.Blue;
+
+                // Cambia la fuente a una más moderna y de tamaño adecuado.
+                puntoIngresado.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+
+                // Ajusta el tamaño del Label para que se adapte mejor al texto.
+                puntoIngresado.Size = new Size(70, 20); // Ajuste de tamaño compacto
+
+                // Elimina el fondo y el borde para un estilo más limpio.
+                puntoIngresado.BackColor = Color.Transparent;
+                puntoIngresado.BorderStyle = BorderStyle.None;
+
+                // Calcula la ubicación del Label con un espacio moderado entre ellos.
                 int cantElementos = PuntosCargados.Count();
-                int puntoY = (cantElementos - 1) * 17;
-                puntoIngresado.Location = new Point(0, puntoY);
-                puntoIngresado.Size = new Size(100, 16);
-                puntoIngresado.Font = new Font("Arial", 11);
+                int puntoY = (cantElementos - 1) * 22; // Ajusta el espacio entre los Labels
+                puntoIngresado.Location = new Point(5, puntoY); // Añade un pequeño margen izquierdo
 
                 panelCargaDePuntos.Controls.Add(puntoIngresado);
                 panelCargaDePuntos.Show();
-                
 
                 txtBoxX.Clear();
                 txtBoxY.Clear();
@@ -163,7 +172,11 @@ namespace AnalsisNumerico.Unidades.U3
                 // Mostrar los resultados en los TextBox del formulario
                 txbFuncion.Text = resultado.Funcion;
                 txtBoxCorrelacion.Text = resultado.PorcentajeEfectividad.ToString("F2") + "%";
-                txtBoxEfectividad.Text = resultado.EfectividadAjuste ? "Sí" : "No";
+                txtBoxEfectividad.Text = "El ajuste no es aceptable.";
+                if (resultado.EfectividadAjuste)
+                {
+                    txtBoxEfectividad.Text = "El ajuste es aceptable.";
+                }
                 comboBoxGrado.Text = resultado.Grado.ToString();
 
                 // Cargar la gráfica con los puntos y la función
@@ -194,14 +207,6 @@ namespace AnalsisNumerico.Unidades.U3
                 MessageBox.Show("Ocurrió un error durante el cálculo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        //public void SetPanelGrafica()
-        //{
-        //    groupBoxGrafico.Controls.Clear();
-        //    this.graficador = new Graficador();
-        //    groupBoxGrafico.Controls.Add(graficador);
-        //    graficador.Dock = DockStyle.Fill;
-        //}
 
         private void CargarPunto(double x, double y)
         {
@@ -236,64 +241,6 @@ namespace AnalsisNumerico.Unidades.U3
             }
         }
 
-        // PRUEBAS
-        /*
-        private void PruebaGraficador()
-        {
-            //Creamos una lista con puntos
-            List<double[]> points = new List<double[]> {
-                new double[2] { -3, -7 },
-                new double[2] { 0, -0.5 },
-                new double[2] { 1, 0.5 },
-                new double[2] { 2, 4.25 },
-                new double[2] { 3.25, 8 }
-            };
-
-            string function = "2.5*x-1"; // y = 2,5x – 1
-
-            SetPanelGrafica();
-            graficador.Graficar(points, function);
-        }
-        
-        private List<double[]> ObtenerPuntosParaPruebaGraficador1()
-        {
-            List<double[]> points = new List<double[]> {
-                new double[2] { -3, -7.5 },
-                new double[2] { 0.5, -2.25 },
-                new double[2] { 1, -1.5 },
-                new double[2] { 1.5, 1 },
-                new double[2] { 2, 0 },
-                new double[2] { 3, 0 },
-                new double[2] { 5, 4.5 }
-            };
-
-            return points;
-        }
-
-        private List<double[]> ObtenerPuntosParaPruebaGraficador2()
-        {
-            List<double[]> points = new List<double[]> {
-                new double[2] { -3, -7.5 },
-                new double[2] { 0.5, -2.25 },
-                new double[2] { 1, -1.5 },
-                new double[2] { 2, 0 },
-                new double[2] { 5, 4.5 }
-            };
-
-            return points;
-        }
-
-        private void txbPuntoY_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                btnCargar_Click(sender, e);
-                txtBoxX.Focus();
-            }
-        }
-        */
-
-
         // NO ELIMINAR
         private void label1_Click(object sender, EventArgs e)
         {
@@ -316,6 +263,11 @@ namespace AnalsisNumerico.Unidades.U3
         }
 
         private void webView21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBoxEfectividad_Click(object sender, EventArgs e)
         {
 
         }
