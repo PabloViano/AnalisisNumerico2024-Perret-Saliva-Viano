@@ -82,6 +82,14 @@ namespace AnalsisNumerico.Unidades.Unidad4
             }
             U4Salida resultado = Procedimientos.Resolucion(datosEntrada);
 
+            if (resultado == null)
+            {
+                txbArea.Text = "0";
+                txbObservacion.Text = "Error al calcular el área.";
+                txbObservacion.ForeColor = Color.Red; // Color para mensaje de error
+                return;
+            }
+
             txbArea.Text = resultado.Area.ToString();
             txbObservacion.Text = "Área calculada con éxito.";
             txbObservacion.ForeColor = Color.Green; // Color para mensaje de éxito
