@@ -1,5 +1,6 @@
 ﻿using Analisis_Numerico;
 using Entidades.Unidad3;
+using Entidades.Unidad4;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -20,7 +22,7 @@ namespace AnalsisNumerico.Unidades.U3
         public Unidad3()
         {
             InitializeComponent();
-            SetPanelGrafica();
+            // SetPanelGrafica();
             CargarComboBoxMetodoUtilizar();
             CargarComboBoxGrado();
             btnBorrarTodos.Enabled = false;
@@ -46,11 +48,21 @@ namespace AnalsisNumerico.Unidades.U3
                 Label puntoIngresado = new Label();
                 puntoIngresado.Text = $"({x} , {y})";
                 puntoIngresado.ForeColor = Color.Blue;
+
+                // Cambia la fuente a una más moderna y de tamaño adecuado.
+                puntoIngresado.Font = new Font("Segoe UI", 12, FontStyle.Regular);
+
+                // Ajusta automáticamente el tamaño del Label al contenido
+                puntoIngresado.AutoSize = true;
+
+                // Elimina el fondo y el borde para un estilo más limpio.
+                puntoIngresado.BackColor = Color.Transparent;
+                puntoIngresado.BorderStyle = BorderStyle.None;
+
+                // Calcula la ubicación del Label con un espacio moderado entre ellos.
                 int cantElementos = PuntosCargados.Count();
-                int puntoY = (cantElementos - 1) * 17;
-                puntoIngresado.Location = new Point(0, puntoY);
-                puntoIngresado.Size = new Size(100, 16);
-                puntoIngresado.Font = new Font("Arial", 11);
+                int puntoY = (cantElementos - 1) * 22; // Ajusta el espacio entre los Labels
+                puntoIngresado.Location = new Point(5, puntoY); // Añade un pequeño margen izquierdo
 
                 panelCargaDePuntos.Controls.Add(puntoIngresado);
                 panelCargaDePuntos.Show();
@@ -92,7 +104,7 @@ namespace AnalsisNumerico.Unidades.U3
             btnBorrarUltimo.Enabled = false;
         }
 
-        private void btnCalcular_Click(object sender, EventArgs e)
+        private async void btnCalcular_Click(object sender, EventArgs e)
         {
             // Validaciones previas antes de realizar el cálculo
             if (this.PuntosCargados == null || this.PuntosCargados.Count == 0)
@@ -102,7 +114,7 @@ namespace AnalsisNumerico.Unidades.U3
             }
 
             double tolerancia;
-            int grado = 1; // Inicializamos grado en 1 para regresión lineal, aunque no será utilizado.
+            int grado;
 
             // Validar la entrada de la tolerancia
             if (!double.TryParse(txtBoxTolerancia.Text, out tolerancia))
@@ -119,6 +131,9 @@ namespace AnalsisNumerico.Unidades.U3
                     MessageBox.Show("Debe seleccionar un grado válido (entre 1 y 10) para la regresión polinomial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+            } else
+            {
+                grado = 1;
             }
 
             // Crear objeto U3Entrada con los puntos cargados, tolerancia y grado
@@ -160,24 +175,36 @@ namespace AnalsisNumerico.Unidades.U3
                 // Mostrar los resultados en los TextBox del formulario
                 txbFuncion.Text = resultado.Funcion;
                 txtBoxCorrelacion.Text = resultado.PorcentajeEfectividad.ToString("F2") + "%";
-                txtBoxEfectividad.Text = resultado.EfectividadAjuste ? "Sí" : "No";
-                comboBoxGrado.Text = resultado.Grado.ToString();
+                txtBoxEfectividad.Text = "El ajuste no es aceptable.";
+                if (resultado.EfectividadAjuste)
+                {
+                    txtBoxEfectividad.Text = "El ajuste es aceptable.";
+                }
 
-                // Cargar la gráfica con los puntos y la función
-                graficador.Graficar(PuntosCargados, resultado.FuncionGraficador);
+                // Inicializa el WebView2 si no está ya inicializado
+                await webView21.EnsureCoreWebView2Async(null);
+
+                string funcion = txbFuncion.Text; // Supón que el TextBox se llama txbFuncion
+                funcion = Regex.Replace(funcion, @"y\s*=\s*", "");
+                funcion = funcion.Replace(",", "."); // Asegúrate de que ya esté en formato de punto
+                string funcionModificada = Regex.Replace(funcion, @"\+", "%2B");
+
+
+                // Construir la cadena para los puntos
+                string puntosComando = string.Join("%3B", PuntosCargados.Select((p, index) =>
+                    $"A{index}%3D({p[0].ToString("G", System.Globalization.CultureInfo.InvariantCulture)},{p[1].ToString("G", System.Globalization.CultureInfo.InvariantCulture)})"
+                ));
+
+                // Construye la URL para GeoGebra con la función ingresada y los puntos
+                string urlGeoGebra = $"https://www.geogebra.org/graphing?command=f(x)={funcionModificada}%3B{puntosComando}";
+
+                // Navega a la URL generada
+                webView21.CoreWebView2.Navigate(urlGeoGebra);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error durante el cálculo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        public void SetPanelGrafica()
-        {
-            groupBoxGrafico.Controls.Clear();
-            this.graficador = new Graficador();
-            groupBoxGrafico.Controls.Add(graficador);
-            graficador.Dock = DockStyle.Fill;
         }
 
         private void CargarPunto(double x, double y)
@@ -213,64 +240,6 @@ namespace AnalsisNumerico.Unidades.U3
             }
         }
 
-        // PRUEBAS
-        /*
-        private void PruebaGraficador()
-        {
-            //Creamos una lista con puntos
-            List<double[]> points = new List<double[]> {
-                new double[2] { -3, -7 },
-                new double[2] { 0, -0.5 },
-                new double[2] { 1, 0.5 },
-                new double[2] { 2, 4.25 },
-                new double[2] { 3.25, 8 }
-            };
-
-            string function = "2.5*x-1"; // y = 2,5x – 1
-
-            SetPanelGrafica();
-            graficador.Graficar(points, function);
-        }
-        
-        private List<double[]> ObtenerPuntosParaPruebaGraficador1()
-        {
-            List<double[]> points = new List<double[]> {
-                new double[2] { -3, -7.5 },
-                new double[2] { 0.5, -2.25 },
-                new double[2] { 1, -1.5 },
-                new double[2] { 1.5, 1 },
-                new double[2] { 2, 0 },
-                new double[2] { 3, 0 },
-                new double[2] { 5, 4.5 }
-            };
-
-            return points;
-        }
-
-        private List<double[]> ObtenerPuntosParaPruebaGraficador2()
-        {
-            List<double[]> points = new List<double[]> {
-                new double[2] { -3, -7.5 },
-                new double[2] { 0.5, -2.25 },
-                new double[2] { 1, -1.5 },
-                new double[2] { 2, 0 },
-                new double[2] { 5, 4.5 }
-            };
-
-            return points;
-        }
-
-        private void txbPuntoY_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                btnCargar_Click(sender, e);
-                txtBoxX.Focus();
-            }
-        }
-        */
-
-
         // NO ELIMINAR
         private void label1_Click(object sender, EventArgs e)
         {
@@ -288,6 +257,16 @@ namespace AnalsisNumerico.Unidades.U3
         }
 
         private void comboBoxMetodo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void webView21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBoxEfectividad_Click(object sender, EventArgs e)
         {
 
         }

@@ -65,7 +65,7 @@ namespace AnalsisNumerico.Unidades.U3
 
             return new U3Salida
             {
-                Funcion = $"y = {Math.Round(a1, 3)}.x {(a0 > 0 ? "+" : "")}{Math.Round(a0, 3)}",
+                Funcion = $"y = {Math.Round(a1, 3)}x {(a0 > 0 ? "+" : "")}{Math.Round(a0, 3)}",
                 FuncionGraficador = $"{a1}*x{(a0 > 0 ? "+" : "")}{a0}",
                 PorcentajeEfectividad = coefCorrelacion * 100,
                 EfectividadAjuste = coefCorrelacion > entrada.Tolerancia
